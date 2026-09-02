@@ -18,14 +18,23 @@
       <img class="brand-logo" src="/assets/img/fluidsilicon_logo.png" alt="Fluid Silicon" onerror="this.closest('a').classList.add('no-logo')">
       <span class="brand-text">FLUID SILICON<span class="dot">_</span></span>
     </a>
+    <div class="nav-right">
+      <button class="search-toggle" aria-label="Search" onclick="toggleSearch()"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
     <ul class="nav-links" id="nav-links">
       <li><a href="/" aria-current="page">Home</a></li>
       <li><a href="/industries/">Industries</a></li>
-      <li><a href="/about/">About</a></li>
+      <li><a href="/team/">Our Team</a></li>
       <li><a href="/careers/">Careers</a></li>
       <li><a class="nav-cta" href="/demo/">Schedule a Demo</a></li>
     </ul>
+    </div>
+  </div>
+<div class="search-panel" id="search-panel">
+    <div class="wrap">
+      <input class="search-input" type="text" id="search-input" placeholder="Search the site..." autocomplete="off">
+      <div class="search-results" id="search-results"></div>
+    </div>
   </div>
 </header>
 
@@ -51,7 +60,7 @@
       <div class="section-head">
         <span class="mono eyebrow">Solutions</span>
         <h2>Chips are built to a fixed, idealized average. Their real-world condition tells a different story.</h2>
-        <p>As chips heat, cool, and age, and due to natural variation from manufacturing, their real performance and energy characteristics drift from the assumptions they were designed against. Conventional design ignores this and simply overengineers for the worst case, wasting energy and performance across every chip in the fleet.</p>
+        <p>As chips heat, cool, and age, and due to natural variation from manufacturing, their real performance and energy characteristics drift from the assumptions they were designed against. Conventional design accounts for this by simply overengineering for the worst case, a reasonable tradeoff historically, but one that wastes energy and performance across every chip in the fleet.</p>
       </div>
       <div class="card-grid" id="solutions-grid"></div>
     </div>
@@ -73,9 +82,8 @@
         <span class="mono eyebrow">Why This Matters</span>
         <h2>A more efficient world starts with what we've already built.</h2>
         <p style="font-weight: 600; color: var(--ink);">Our vision: infrastructure that makes computing adaptable, evolvable, and sustainable, built for the demands of AI and beyond.</p>
-        <p>Electricity demand is growing faster than it has in decades, and not from one source. Data centers, telecom networks, transportation, aerospace and satellite systems, and everyday infrastructure are all drawing more power as the world runs more of itself through computing. The instinct across every one of these industries is the same: build more capacity, more infrastructure, more hardware.</p>
-        <p>We think there's a faster lever sitting mostly untouched: the hardware already deployed today isn't running anywhere close to its real potential. Every chip in the field, whether it's in a data center, a cell tower, or a satellite, is held back by conservative, worst-case design. It's tuned for the chip it might be, not the one it actually is.</p>
-        <p>Fluid Silicon exists to close that gap, wherever it shows up. Not by replacing the hardware, but by letting it tell you what it's actually capable of, and giving it room to run there. Conserving the energy we already generate, and getting more out of the compute and infrastructure we already have, is one of the fastest paths to a more efficient world, across every industry that depends on it.</p>
+        <p>Electricity demand is growing faster than it has in decades, and not from one source, data centers, telecom networks, aerospace and satellite systems, and everyday infrastructure are all drawing more power as the world runs more of itself through computing. The instinct everywhere is the same: build more capacity, more hardware.</p>
+        <p>That's the tradeoff sitting inside almost every deployed chip today: designed once for a worst case, then run that way forever, whether or not the worst case ever shows up. Fluid Silicon closes that gap, wherever it shows up, which means lower energy cost, fewer field failures, and hardware that keeps working longer than its original spec assumed, whether that hardware sits in a data center, a cell tower, or a satellite.</p>
       </div>
       <div class="stat-row">
         <div class="step" style="max-width: 520px; flex: 1;">
@@ -109,7 +117,8 @@
         <p>Fluid Silicon grew out of reconfigurable computing research at the University of Pennsylvania and a decades-long effort on reconfigurable systems.</p>
       </div>
       <div class="logo-row" id="recognition-row"></div>
-      <div class="hero-actions" style="margin-top: 56px;">
+      <p style="margin-top: 56px; font-size: 19px;">This is what we're building toward: a world where computing keeps scaling without its energy footprint scaling alongside it, starting with the chips already in the field today.</p>
+      <div class="hero-actions" style="margin-top: 24px;">
         <a class="btn" href="/demo/">Schedule a Demo</a>
       </div>
     </div>
@@ -124,7 +133,7 @@
     <span class="mono">© 2026 Fluid Silicon · Philadelphia, PA<a href="https://www.linkedin.com/company/fluidsilicon/" target="_blank" rel="noopener" class="li-link" aria-label="Fluid Silicon on LinkedIn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a></span>
     <ul class="footer-links mono">
       <li><a href="/industries/">Industries</a></li>
-      <li><a href="/about/">About</a></li>
+      <li><a href="/team/">Our Team</a></li>
       <li><a href="/careers/">Careers</a></li>
       <li><a href="/demo/">Schedule a Demo</a></li>
       <li><a href="mailto:help@fluidsilicon.com">help@fluidsilicon.com</a></li>

@@ -8,7 +8,7 @@
   --orange-bright: #e05a10;
   --hairline: #e6e3de;
   --dark-line: #2a2a2a;
-  --max: clamp(1160px, 84vw, 1800px);
+  --max: clamp(1160px, 88vw, 2100px);
   --gutter: 24px;
 }
 
@@ -59,6 +59,7 @@ header {
 .brand .dot { color: var(--orange); }
 
 .nav-links { display: flex; gap: 34px; list-style: none; align-items: center; }
+.nav-right { display: flex; align-items: center; gap: 20px; }
 .nav-links a {
   font-family: "IBM Plex Mono", monospace;
   font-size: 13px;
@@ -312,6 +313,11 @@ body.about-page .section-head { margin-bottom: 0; }
 }
 .form-grid button { margin-top: 36px; }
 .form-note { margin-top: 20px; color: var(--ink-soft); font-size: 15px; }
+.form-note.error { color: var(--orange); }
+.sponsorship-details { display: none; }
+.apply-confirmation { display: none; }
+.apply-confirmation h2 { font-size: clamp(24px, 3vw, 32px); font-weight: 500; margin-bottom: 12px; }
+.apply-confirmation p { color: var(--ink-soft); font-size: 18px; margin-left: -2px; }
 
 /* ---------- Footer ---------- */
 
@@ -320,6 +326,48 @@ footer { background: var(--ink); color: var(--paper); padding: 56px 0 64px; }
 .li-link { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; background: #0A66C2; border-radius: 4px; margin-left: 8px; vertical-align: -4px; flex-shrink: 0; transition: background 0.15s ease; }
 .li-link svg { display: block; fill: #ffffff; }
 .li-link:hover { background: #004182; }
+.scholar-link { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; background: var(--ink); border-radius: 4px; margin-left: 8px; vertical-align: -4px; flex-shrink: 0; transition: background 0.15s ease; }
+.scholar-link svg { display: block; fill: #ffffff; }
+.scholar-link:hover { background: var(--orange); }
+
+/* Team grid (About page) */
+.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 64px; }
+.team-grid img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; border: 1px solid var(--hairline); }
+.team-name { margin-top: 16px; font-size: 19px; font-weight: 600; }
+.team-title { color: var(--ink-soft); font-size: 15px; margin-top: 4px; }
+.team-icons { margin-top: 10px; }
+@media (max-width: 700px) {
+  .team-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* Site search */
+.search-toggle { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: none; border: none; cursor: pointer; color: var(--ink); }
+.search-toggle:hover { color: var(--orange); }
+.search-panel { display: none; background: var(--ink); border-bottom: 1px solid var(--dark-line); }
+.search-panel.open { display: block; }
+.search-panel .wrap { padding: 20px 24px; }
+.search-input {
+  width: 100%;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 17px;
+  padding: 12px 15px;
+  border: 1px solid var(--dark-line);
+  background: #1a1a1a;
+  color: var(--paper);
+}
+.search-input:focus { outline: 2px solid var(--orange); outline-offset: -1px; }
+.search-input::placeholder { color: #8f8b86; }
+.search-results { margin-top: 14px; max-height: 320px; overflow-y: auto; }
+.search-result {
+  display: block;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--dark-line);
+  text-decoration: none;
+}
+.search-result:hover .search-result-title { color: var(--orange-bright); }
+.search-result-title { color: var(--paper); font-size: 16px; font-weight: 600; }
+.search-result-snippet { color: #8f8b86; font-size: 14px; margin-top: 3px; }
+.search-empty { color: #8f8b86; font-size: 14px; margin-top: 14px; }
 .footer-grid { display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
 footer .mono { color: #8f8b86; }
 footer a { text-decoration: none; }

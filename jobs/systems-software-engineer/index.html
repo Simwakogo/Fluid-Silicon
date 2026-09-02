@@ -18,14 +18,23 @@
       <img class="brand-logo" src="/assets/img/fluidsilicon_logo.png" alt="Fluid Silicon" onerror="this.closest('a').classList.add('no-logo')">
       <span class="brand-text">FLUID SILICON<span class="dot">_</span></span>
     </a>
+    <div class="nav-right">
+      <button class="search-toggle" aria-label="Search" onclick="toggleSearch()"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
     <ul class="nav-links" id="nav-links">
       <li><a href="/">Home</a></li>
       <li><a href="/industries/">Industries</a></li>
-      <li><a href="/about/">About</a></li>
+      <li><a href="/team/">Our Team</a></li>
       <li><a href="/careers/" aria-current="page">Careers</a></li>
       <li><a class="nav-cta" href="/demo/">Schedule a Demo</a></li>
     </ul>
+    </div>
+  </div>
+<div class="search-panel" id="search-panel">
+    <div class="wrap">
+      <input class="search-input" type="text" id="search-input" placeholder="Search the site..." autocomplete="off">
+      <div class="search-results" id="search-results"></div>
+    </div>
   </div>
 </header>
 
@@ -35,7 +44,6 @@
     <div class="wrap">
       <span class="mono">Full-Time · Philadelphia, PA · On-Site</span>
       <h1>Systems Software Engineer, HW/SW Co-Design</h1>
-      <p class="meta-line">careers@fluidsilicon.com · Subject: "Systems Software Engineer"</p>
     </div>
   </div>
 
@@ -78,12 +86,10 @@
       <li>Competitive salary</li>
     </ul>
 
-    <h2>How to Apply</h2>
-  
     <div class="job-apply">
-      <a class="btn" href="mailto:careers@fluidsilicon.com?subject=Systems%20Software%20Engineer">Apply Now</a>
+      <a class="btn" href="/apply/?role=Systems%20Software%20Engineer%2C%20HW/SW%20Co-Design">Apply Now</a>
     </div>
-    <p class="eo-note">Fluid Silicon is an equal opportunity employer. We consider all qualified applicants without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability, or veteran status. If you need an accommodation during the application process, tell us in your email.</p>
+    <p class="eo-note">Fluid Silicon is an equal opportunity employer. We consider all qualified applicants without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability, or veteran status. If you need an accommodation during the application process, contact <a href="mailto:careers@fluidsilicon.com">careers@fluidsilicon.com</a>.</p>
   </div>
 
 </main>
@@ -95,7 +101,7 @@
     <span class="mono">© 2026 Fluid Silicon · Philadelphia, PA<a href="https://www.linkedin.com/company/fluidsilicon/" target="_blank" rel="noopener" class="li-link" aria-label="Fluid Silicon on LinkedIn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a></span>
     <ul class="footer-links mono">
       <li><a href="/industries/">Industries</a></li>
-      <li><a href="/about/">About</a></li>
+      <li><a href="/team/">Our Team</a></li>
       <li><a href="/careers/">Careers</a></li>
       <li><a href="/demo/">Schedule a Demo</a></li>
       <li><a href="mailto:help@fluidsilicon.com">help@fluidsilicon.com</a></li>

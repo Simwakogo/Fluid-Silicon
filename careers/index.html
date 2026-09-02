@@ -18,14 +18,23 @@
       <img class="brand-logo" src="/assets/img/fluidsilicon_logo.png" alt="Fluid Silicon" onerror="this.closest('a').classList.add('no-logo')">
       <span class="brand-text">FLUID SILICON<span class="dot">_</span></span>
     </a>
+    <div class="nav-right">
+      <button class="search-toggle" aria-label="Search" onclick="toggleSearch()"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
     <ul class="nav-links" id="nav-links">
       <li><a href="/">Home</a></li>
       <li><a href="/industries/">Industries</a></li>
-      <li><a href="/about/">About</a></li>
+      <li><a href="/team/">Our Team</a></li>
       <li><a href="/careers/" aria-current="page">Careers</a></li>
       <li><a class="nav-cta" href="/demo/">Schedule a Demo</a></li>
     </ul>
+    </div>
+  </div>
+<div class="search-panel" id="search-panel">
+    <div class="wrap">
+      <input class="search-input" type="text" id="search-input" placeholder="Search the site..." autocomplete="off">
+      <div class="search-results" id="search-results"></div>
+    </div>
   </div>
 </header>
 
@@ -35,8 +44,8 @@
     <div class="wrap">
       <div class="section-head">
         <span class="mono eyebrow">Careers</span>
-        <h2>Opportunities to Contribute</h2>
-        <p>We are looking for passionate individuals to join our team and help shape the future of reconfigurable computing.</p>
+        <h2>Help build where we're headed</h2>
+        <p>Fluid Silicon is still a small team building something that hasn't fully existed before. Every hire gets real ownership over what's built and who it reaches, working directly with the people already building it.</p>
       </div>
       <h3 class="mono" style="color: var(--orange); margin-bottom: 8px;">Full-Time</h3>
       <div class="rows" id="jobs-fulltime"></div>
@@ -55,7 +64,7 @@
     <span class="mono">© 2026 Fluid Silicon · Philadelphia, PA<a href="https://www.linkedin.com/company/fluidsilicon/" target="_blank" rel="noopener" class="li-link" aria-label="Fluid Silicon on LinkedIn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a></span>
     <ul class="footer-links mono">
       <li><a href="/industries/">Industries</a></li>
-      <li><a href="/about/">About</a></li>
+      <li><a href="/team/">Our Team</a></li>
       <li><a href="/careers/">Careers</a></li>
       <li><a href="/demo/">Schedule a Demo</a></li>
       <li><a href="mailto:help@fluidsilicon.com">help@fluidsilicon.com</a></li>

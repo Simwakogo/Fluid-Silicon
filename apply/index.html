@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Apply | Fluid Silicon</title>
+  <meta name="description" content="Apply for a role at Fluid Silicon.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/">
+      <img class="brand-logo" src="/assets/img/fluidsilicon_logo.png" alt="Fluid Silicon" onerror="this.closest('a').classList.add('no-logo')">
+      <span class="brand-text">FLUID SILICON<span class="dot">_</span></span>
+    </a>
+    <div class="nav-right">
+      <button class="search-toggle" aria-label="Search" onclick="toggleSearch()"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/industries/">Industries</a></li>
+      <li><a href="/team/">Our Team</a></li>
+      <li><a href="/careers/" aria-current="page">Careers</a></li>
+      <li><a class="nav-cta" href="/demo/">Schedule a Demo</a></li>
+    </ul>
+    </div>
+  </div>
+<div class="search-panel" id="search-panel">
+    <div class="wrap">
+      <input class="search-input" type="text" id="search-input" placeholder="Search the site..." autocomplete="off">
+      <div class="search-results" id="search-results"></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <div class="job-header">
+    <div class="wrap">
+      <span class="mono">Careers</span>
+      <h1>Apply</h1>
+      <p class="meta-line" id="apply-role-line">Tell us a bit about yourself, and we'll take it from there.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+
+      <form id="apply-form" class="form-grid">
+        <label for="apply-name">Full Name</label>
+        <input id="apply-name" type="text" name="name" autocomplete="name" required>
+
+        <label for="apply-email">Email</label>
+        <input id="apply-email" type="email" name="email" autocomplete="email" required>
+
+        <label for="apply-phone">Phone</label>
+        <input id="apply-phone" type="tel" name="phone" autocomplete="tel" required>
+
+        <label for="apply-role">Role Applying For</label>
+        <select id="apply-role" name="role" required>
+          <option value="">Select a role</option>
+          <option>FPGA Engineer</option>
+          <option>Systems Software Engineer, HW/SW Co-Design</option>
+          <option>Software Engineering Intern</option>
+          <option>Hardware Design / FPGA Intern</option>
+          <option>Business Development Intern</option>
+          <option>Other</option>
+        </select>
+
+        <label for="apply-cover">Cover Letter (Optional)</label>
+        <textarea id="apply-cover" name="coverLetter" rows="6"></textarea>
+
+        <label for="apply-work-auth">Are you legally authorized to work in the United States?</label>
+        <select id="apply-work-auth" name="workAuthorized" required>
+          <option value="">Select one</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+
+        <label for="apply-sponsorship">Will you now, or in the future, require sponsorship for a U.S. work visa (e.g. H-1B) to continue employment with us?</label>
+        <select id="apply-sponsorship" name="needSponsorship" required>
+          <option value="">Select one</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+
+        <div id="sponsorship-details" class="sponsorship-details">
+          <label for="apply-visa-type">Current or Anticipated Work Authorization Status</label>
+          <select id="apply-visa-type" name="visaType">
+            <option value="">Select one</option>
+            <option value="F-1 OPT">F-1 OPT (standard, up to 12 months)</option>
+            <option value="F-1 STEM OPT Extension">F-1 STEM OPT Extension (additional 24 months)</option>
+            <option value="H-1B (currently held, needs transfer)">H-1B (currently held, would need transfer)</option>
+            <option value="H-1B (not yet held, needs new petition)">H-1B (not yet held, would need new petition/lottery)</option>
+            <option value="J-1 Exchange Visitor">J-1 Exchange Visitor</option>
+            <option value="TN (Canada/Mexico)">TN (Canada/Mexico)</option>
+            <option value="O-1">O-1</option>
+            <option value="Green Card pending / EAD">Green Card pending / EAD</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <label for="apply-visa-expiration">Expiration Date of Current Work Authorization (If Applicable)</label>
+          <input id="apply-visa-expiration" type="date" name="visaExpiration">
+        </div>
+
+        <label for="apply-resume">Resume</label>
+        <input id="apply-resume" type="file" name="resume" accept=".pdf,.doc,.docx" required>
+
+        <!-- honeypot: kept in the DOM but visually hidden, real applicants never see or fill it -->
+        <input type="text" name="website" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off">
+
+        <button class="btn" type="submit" id="apply-submit">Submit Application</button>
+        <p class="form-note" id="apply-status"></p>
+      </form>
+
+      <div class="apply-confirmation" id="apply-confirmation">
+        <h2>Thanks, we've received your application.</h2>
+        <p>Our team will be in touch soon.</p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+
+<footer>
+  <div class="wrap"><p class="mono footer-tagline">Foundational Infrastructure for Intelligence</p></div>
+  <div class="wrap footer-grid">
+    <span class="mono">© 2026 Fluid Silicon · Philadelphia, PA<a href="https://www.linkedin.com/company/fluidsilicon/" target="_blank" rel="noopener" class="li-link" aria-label="Fluid Silicon on LinkedIn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a></span>
+    <ul class="footer-links mono">
+      <li><a href="/industries/">Industries</a></li>
+      <li><a href="/team/">Our Team</a></li>
+      <li><a href="/careers/">Careers</a></li>
+      <li><a href="/demo/">Schedule a Demo</a></li>
+      <li><a href="mailto:help@fluidsilicon.com">help@fluidsilicon.com</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="/assets/content.js"></script>
+<script src="/assets/main.js"></script>
+<script>
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzIaL01HeeeGv7JWF3CfKJfOoJfXRxQr4kfGO6wJXI8le7QvSfBfSuRv7JS9Gat8kbGuw/exec';
+const MAX_FILE_MB = 5;
+
+const form = document.getElementById('apply-form');
+const statusEl = document.getElementById('apply-status');
+const submitBtn = document.getElementById('apply-submit');
+const confirmationEl = document.getElementById('apply-confirmation');
+const sponsorshipSelect = document.getElementById('apply-sponsorship');
+const sponsorshipDetails = document.getElementById('sponsorship-details');
+const visaTypeField = document.getElementById('apply-visa-type');
+const visaExpirationField = document.getElementById('apply-visa-expiration');
+
+// Pre-fill the role from the query param, e.g. /apply/?role=FPGA%20Engineer,
+// and make the page heading reflect which role the applicant clicked on.
+(function prefillRole() {
+  const role = new URLSearchParams(window.location.search).get('role');
+  if (!role) return;
+  const roleField = document.getElementById('apply-role');
+  if (!roleField) return;
+  const match = [...roleField.options].find(o => o.value === role || o.textContent === role);
+  if (match) {
+    match.selected = true;
+  } else {
+    const opt = document.createElement('option');
+    opt.value = role;
+    opt.textContent = role;
+    opt.selected = true;
+    roleField.appendChild(opt);
+  }
+  const line = document.getElementById('apply-role-line');
+  if (line) line.textContent = `Applying for: ${role}`;
+})();
+
+// Show/require the visa detail fields only when sponsorship is actually needed
+sponsorshipSelect.addEventListener('change', () => {
+  const needsDetail = sponsorshipSelect.value === 'Yes';
+  sponsorshipDetails.style.display = needsDetail ? 'block' : 'none';
+  visaTypeField.required = needsDetail;
+  if (!needsDetail) {
+    visaTypeField.value = '';
+    visaExpirationField.value = '';
+  }
+});
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  statusEl.classList.remove('error');
+  statusEl.textContent = '';
+
+  const file = form.resume.files[0];
+  if (!form.name.value || !form.email.value || !form.phone.value) {
+    showError('Please fill in your name, email, and phone number.');
+    return;
+  }
+  if (!file) { showError('Please attach your resume.'); return; }
+  const allowedExt = ['.pdf', '.doc', '.docx'];
+  const fileNameLower = file.name.toLowerCase();
+  if (!allowedExt.some(ext => fileNameLower.endsWith(ext))) {
+    showError('Resume must be a PDF, DOC, or DOCX file.');
+    return;
+  }
+  if (file.size > MAX_FILE_MB * 1024 * 1024) {
+    showError(`File is too large. Please keep it under ${MAX_FILE_MB}MB.`);
+    return;
+  }
+
+  submitBtn.disabled = true;
+  statusEl.textContent = 'Submitting…';
+
+  const reader = new FileReader();
+  reader.onload = async () => {
+    const base64 = reader.result.split(',')[1];
+    const payload = {
+      name: form.name.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      role: form.role.value,
+      coverLetter: form.coverLetter.value,
+      workAuthorized: form.workAuthorized.value,
+      needSponsorship: form.needSponsorship.value,
+      visaType: form.visaType.value,
+      visaExpiration: form.visaExpiration.value,
+      honeypot: form.website.value,
+      fileName: file.name,
+      mimeType: file.type,
+      fileData: base64
+    };
+
+    try {
+      const res = await fetch(WEB_APP_URL, {
+        method: 'POST',
+        body: JSON.stringify(payload) // no Content-Type header on purpose — avoids a CORS preflight
+      });
+      const result = await res.json();
+      if (result.status === 'ok') {
+        form.style.display = 'none';
+        confirmationEl.style.display = 'block';
+      } else {
+        showError(result.message || 'Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      showError('Something went wrong. Please try again.');
+    }
+  };
+  reader.readAsDataURL(file);
+});
+
+function showError(message) {
+  statusEl.textContent = message;
+  statusEl.classList.add('error');
+  submitBtn.disabled = false;
+}
+</script>
+</body>
+</html>
