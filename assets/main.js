@@ -13,10 +13,13 @@ if (toggle && links) {
   });
 }
 
-// Hero media: video if SITE.video is set, otherwise the chip fabric animation.
+// Hero media: photo if SITE.heroImage is set, else video if SITE.video is set, otherwise the chip fabric animation.
 const media = document.getElementById("hero-media");
 if (media) {
-  if (S.video) {
+  if (S.heroImage) {
+    media.innerHTML =
+      `<img class="hero-photo" src="${S.heroImage}" alt="">`;
+  } else if (S.video) {
     media.innerHTML =
       `<video class="hero-video" src="${S.video}" autoplay muted loop playsinline controls></video>`;
   } else {

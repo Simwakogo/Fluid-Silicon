@@ -9,6 +9,10 @@ window.SITE = {
   // While null, the animated chip fabric shows instead.
   video: null,
 
+  // Hero visual. Set to a path to show a photo in the hero's right column.
+  // If set, this takes priority over video (above) and the animated fabric fallback.
+  heroImage: null,
+
   // ---- Solution pillars (home page). One sentence each. ----
   solutions: [
     { title: "Silicon Health Monitoring",
@@ -33,12 +37,12 @@ window.SITE = {
   industries: [
     { name: "Aerospace & Defense",
       tag: "Reliability · Lifetime",
-      text: "Health monitoring and in-field repair for missions where replacement is impossible.",
+      text: "Health monitoring and in-field repair for missions at the far edge, where nobody can service the part.",
       detail: "Once a system is deployed, whether on a satellite, an aircraft, or in a remote installation, physically replacing a chip is rarely an option. Fluid Silicon gives these systems the ability to monitor their own condition over the full length of a mission and repair themselves in place, extending the usable life of hardware that has to keep working long after it's out of reach." },
-    { name: "Hyperscale & Cloud",
+    { name: "Data Center & Hyperscale",
       tag: "Energy · Reliability",
-      text: "Health monitoring and adaptive tuning to cut energy across the fleet.",
-      detail: "Hyperscale operators run enormous fleets of chips built to the same conservative, worst-case spec, even though every individual device performs a little differently once deployed. Fluid Silicon lets each device in the fleet be tuned to its own real capability rather than a fixed average, translating into meaningful energy savings at the scale data centers operate." },
+      text: "Health monitoring and adaptive tuning across the fleet, catching a failing chip before it costs capacity or spreads downstream.",
+      detail: "Hyperscale operators run enormous fleets of chips, often from more than one vendor, built to the same conservative, worst-case spec, even though every individual device performs a little differently once deployed. At that scale, one unexpected failure does not stay contained. It can take capacity offline or send errors downstream before anyone catches it. Fluid Silicon monitors the fleet continuously, tunes each device to its own real capability, and catches a failing chip before the damage spreads, translating into both energy savings and fewer surprise outages at the scale data centers operate." },
     { name: "Telecom & High-Reliability",
       tag: "Reliability · Performance",
       text: "Continuous monitoring, compensation, and repair for systems that cannot fail quietly.",
