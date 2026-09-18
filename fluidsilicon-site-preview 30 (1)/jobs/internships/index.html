@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Internships</title>
+  <meta name="description" content="Internships at Fluid Silicon, Philadelphia.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/">
+      <img class="brand-logo" src="/assets/img/fluidsilicon_logo.png" alt="Fluid Silicon" onerror="this.closest('a').classList.add('no-logo')">
+      <span class="brand-text">FLUID SILICON<span class="dot">_</span></span>
+    </a>
+    <div class="nav-right">
+      <button class="search-toggle" aria-label="Search" onclick="toggleSearch()"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/industries/">Industries</a></li>
+      <li><a href="/team/">Our Team</a></li>
+      <li><a href="/careers/" aria-current="page">Careers</a></li>
+      <li><a class="nav-cta" href="/demo/">Schedule a Demo</a></li>
+    </ul>
+    </div>
+  </div>
+<div class="search-panel" id="search-panel">
+    <div class="wrap">
+      <input class="search-input" type="text" id="search-input" placeholder="Search the site..." autocomplete="off">
+      <div class="search-results" id="search-results"></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <div class="job-header">
+    <div class="wrap">
+      <span class="mono">Internships · Philadelphia, PA</span>
+      <h1>Intern Positions</h1>
+      <p class="meta-line">Paid. Real scope, real hardware, a named owner for your project.</p>
+    </div>
+  </div>
+
+  <div class="wrap job-body">
+    <h2>About Fluid Silicon</h2>
+    <p>Fluid Silicon builds the platform that lets deployed chips monitor their own health, adapt to their own silicon, and repair themselves in the field. The company was founded out of reconfigurable computing research at the University of Pennsylvania and was awarded the Penn President's Sustainability Prize. We work on commercial FPGAs, in real deployments, on problems most of the industry treats as fixed at fabrication.</p>
+
+    <h2>The Program</h2>
+    <p>Interns at Fluid Silicon get one defined project, one named mentor, and real hardware. You will present your results to the whole team at the end of the internship, and strong performance leads to a return or full-time offer. All positions are paid and based in Philadelphia.</p>
+
+    <h2 id="swe">Software Engineering Intern</h2>
+    <p>Ship a real piece of the platform: telemetry visualization, device test automation, or a component of the runtime that talks to live chips. You will write code that outlasts your internship.</p>
+    <ul>
+      <li>Strong fundamentals in Python and at least one of C, C++, or Rust</li>
+      <li>Coursework or projects in operating systems, computer architecture, or embedded systems</li>
+      <li>Curiosity about what happens below the software you write</li>
+    </ul>
+    <div class="job-apply"><a class="btn ghost" href="/apply/?role=Software%20Engineering%20Intern">Apply: SWE Intern</a></div>
+
+    <h2 id="hde">Hardware Design / FPGA Intern</h2>
+    <p>Own a bounded RTL block or a silicon characterization experiment end to end: design it, simulate it, run it on a board, and present the measured data. Few internships put you this close to real silicon.</p>
+    <ul>
+      <li>Coursework or projects in digital design with Verilog, SystemVerilog, or VHDL</li>
+      <li>Exposure to an FPGA toolchain (Vivado or Quartus) in class or on your own</li>
+      <li>Comfort being wrong in simulation and finding out why on hardware</li>
+    </ul>
+    <div class="job-apply"><a class="btn ghost" href="/apply/?role=Hardware%20Design%20/%20FPGA%20Intern">Apply: HDE/FPGA Intern</a></div>
+
+    <h2 id="bd">Business Development Intern</h2>
+    <p>Work directly with the founder on go-to-market: map target accounts in defense, cloud, and finance, prepare material for pilot conversations, and sit in on the conversations themselves.</p>
+    <ul>
+      <li>Clear, direct writing</li>
+      <li>Comfort learning deep technology quickly and explaining it simply</li>
+      <li>Interest in how hardware companies find their first customers</li>
+    </ul>
+    <div class="job-apply"><a class="btn ghost" href="/apply/?role=Business%20Development%20Intern">Apply: BD Intern</a></div>
+
+    <p class="eo-note">Fluid Silicon is an equal opportunity employer. We consider all qualified applicants without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability, or veteran status. If you need an accommodation during the application process, contact <a href="mailto:careers@fluidsilicon.com">careers@fluidsilicon.com</a>.</p>
+  </div>
+
+</main>
+
+
+<footer>
+  <div class="wrap"><p class="mono footer-tagline">Foundational Infrastructure for Intelligence</p></div>  <div class="wrap footer-grid">
+    <span class="mono">© 2026 Fluid Silicon · Philadelphia, PA<a href="https://www.linkedin.com/company/fluidsilicon/" target="_blank" rel="noopener" class="li-link" aria-label="Fluid Silicon on LinkedIn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a></span>
+    <ul class="footer-links mono">
+      <li><a href="/industries/">Industries</a></li>
+      <li><a href="/team/">Our Team</a></li>
+      <li><a href="/careers/">Careers</a></li>
+      <li><a href="/demo/">Schedule a Demo</a></li>
+      <li><a href="mailto:info@fluidsilicon.com">info@fluidsilicon.com</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="/assets/content.js"></script>
+<script src="/assets/main.js"></script>
+</body>
+</html>

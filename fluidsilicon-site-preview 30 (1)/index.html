@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Fluid Silicon | On-Chip Monitoring, Optimization, and Repair for Reconfigurable Devices</title>
+  <meta name="description" content="Fluid Silicon monitors reconfigurable chips in operation for reliability, health, and repair in the field.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/">
+      <img class="brand-logo" src="/assets/img/fluidsilicon_logo.png" alt="Fluid Silicon" onerror="this.closest('a').classList.add('no-logo')">
+      <span class="brand-text">FLUID SILICON<span class="dot">_</span></span>
+    </a>
+    <div class="nav-right">
+      <button class="search-toggle" aria-label="Search" onclick="toggleSearch()"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/" aria-current="page">Home</a></li>
+      <li><a href="/industries/">Industries</a></li>
+      <li><a href="/team/">Our Team</a></li>
+      <li><a href="/careers/">Careers</a></li>
+      <li><a class="nav-cta" href="/demo/">Schedule a Demo</a></li>
+    </ul>
+    </div>
+  </div>
+<div class="search-panel" id="search-panel">
+    <div class="wrap">
+      <input class="search-input" type="text" id="search-input" placeholder="Search the site..." autocomplete="off">
+      <div class="search-results" id="search-results"></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="mono eyebrow">Silicon Health for Reconfigurable Devices</span>
+        <h1>Monitor. Adapt. Repair.</h1>
+        <p>Monitor the real-time condition of reconfigurable chips and adapt automatically for health, performance, energy efficiency, and reliability, including in hostile and constrained environments.</p>
+        <div class="hero-actions">
+          <a class="btn" href="/demo/">Schedule a Demo</a>
+          <a class="btn ghost" href="/industries/">Explore Industries</a>
+        </div>
+      </div>
+      <div class="hero-media" id="hero-media"></div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="mono eyebrow">Solutions</span>
+        <h2>Chips are built to a fixed, idealized average. Their real-world condition tells a different story.</h2>
+        <p>As chips heat, cool, and age, and due to natural variation from manufacturing, their real performance and energy characteristics drift from the assumptions they were designed against. Conventional design accounts for this by simply overengineering for the worst case, a reasonable tradeoff historically, but one that wastes energy and performance across every chip in the fleet.</p>
+      </div>
+      <div class="card-grid" id="solutions-grid"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="mono eyebrow">How It Works</span>
+        <h2>A closed loop system on unmodified silicon that can help reconfigurable chips to monitor themselves and adapt to their unique set of conditions, and further repair themselves. </h2>
+      </div>
+      <div class="steps" id="steps-grid"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="mono eyebrow">Capabilities</span>
+        <h2>What the platform actually does, capability by capability</h2>
+        <p>Every capability below runs on real hardware, measured on the chip itself, not modeled from a spec sheet.</p>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Pre-Production Characterization</h3>
+          <p>Each chip is measured before it ever enters service, so its real capability is known going in, not assumed from a worst-case default.</p>
+        </div>
+        <div class="card">
+          <h3>In-Field Characterization &amp; Tuning</h3>
+          <p>That same measurement continues after deployment, under real conditions, with performance retuned to match what the chip can actually do right now.</p>
+        </div>
+        <div class="card">
+          <h3>On-Chip Monitoring</h3>
+          <p>Health and operating condition are tracked continuously from inside the chip, with no external test equipment and no interruption to the workload running on it.</p>
+        </div>
+        <div class="card">
+          <h3>Adaptive Compensation</h3>
+          <p>Chip operation is automatically tuned to the real, measured condition of each individual device rather than a fixed worst-case average, adjusting as conditions change over time.</p>
+        </div>
+        <div class="card">
+          <h3>Aging Prediction</h3>
+          <p>Each chip is tracked against its own baseline over time, so degradation is caught as a measurable trend, not discovered as a surprise failure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="mono eyebrow">Why This Matters</span>
+        <h2>A more efficient world starts with what we've already built.</h2>
+        <p style="font-weight: 600; color: var(--ink);">Our vision: infrastructure that makes computing adaptable, evolvable, and sustainable, built for the demands of AI and beyond.</p>
+        <p>Electricity demand is growing faster than it has in decades, and not from one source, data centers, telecom networks, aerospace and satellite systems, and everyday infrastructure are all drawing more power as the world runs more of itself through computing. The instinct everywhere is the same: build more capacity, more hardware.</p>
+        <p>That's the tradeoff sitting inside almost every deployed chip today: designed once for a worst case, then run that way forever, whether or not the worst case ever shows up. Fluid Silicon closes that gap, wherever it shows up, which means lower energy cost, fewer field failures, and hardware that keeps working longer than its original spec assumed, whether that hardware sits in a data center, a cell tower, or a satellite.</p>
+      </div>
+      <div class="stat-row">
+        <div class="step" style="max-width: 520px; flex: 1;">
+          <p style="color: var(--ink-soft); font-size: 16.5px; margin-bottom: 8px;">Global electricity demand is forecast to grow 3.6% a year through 2030, about 50% faster than the previous decade.</p>
+          <p class="mono" style="font-size: 12px; color: var(--ink-soft);">Source: IEA, "Electricity 2026"</p>
+        </div>
+        <div class="step" style="max-width: 520px; flex: 1;">
+          <p style="color: var(--ink-soft); font-size: 16.5px; margin-bottom: 8px;">The semiconductor industry's own research consortium has projected that computing could become unsustainable by 2040, with the energy required for computing exceeding the world's total energy production.</p>
+          <p class="mono" style="font-size: 12px; color: var(--ink-soft);">Source: Semiconductor Industry Association / Semiconductor Research Corporation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="band">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="mono eyebrow">Industries</span>
+        <h2>Built for High-Reliability Bounds and Tight Energy and Performance Requirements.
+        </h2>
+      </div>
+      <div class="industry-grid" id="industry-grid"></div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="mono eyebrow">Recognition</span>
+        <h2>Built @ Penn</h2>
+        <p>Fluid Silicon grew out of reconfigurable computing research at the University of Pennsylvania and a decades-long effort on reconfigurable systems.</p>
+      </div>
+      <div class="logo-row" id="recognition-row"></div>
+      <p style="margin-top: 56px; font-size: 19px;">This is what we're building toward: a world where computing keeps scaling without its energy footprint scaling alongside it, starting with the chips already in the field today.</p>
+      <div class="hero-actions" style="margin-top: 24px;">
+        <a class="btn" href="/demo/">Schedule a Demo</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+<footer>
+  <div class="wrap"><p class="mono footer-tagline">Foundational Infrastructure for Intelligence</p></div>  <div class="wrap footer-grid">
+    <span class="mono">© 2026 Fluid Silicon · Philadelphia, PA<a href="https://www.linkedin.com/company/fluidsilicon/" target="_blank" rel="noopener" class="li-link" aria-label="Fluid Silicon on LinkedIn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a></span>
+    <ul class="footer-links mono">
+      <li><a href="/industries/">Industries</a></li>
+      <li><a href="/team/">Our Team</a></li>
+      <li><a href="/careers/">Careers</a></li>
+      <li><a href="/demo/">Schedule a Demo</a></li>
+      <li><a href="mailto:info@fluidsilicon.com">info@fluidsilicon.com</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="/assets/content.js"></script>
+<script src="/assets/main.js"></script>
+</body>
+</html>
