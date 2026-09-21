@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title> Fluid Silicon | On-Chip Monitoring, Optimization, and Repair for Reconfigurable Devices</title>
-  <meta name="description" content="Fluid Silicon monitors reconfigurable chips in operation for reliability, health, and repair in the field.">
+  <meta name="description" content="A health layer for the FPGAs you already run. Know what every chip can really do, see failure coming before it arrives, and get more computing for less.">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,7 +49,7 @@
       <div>
         <span class="mono eyebrow">Silicon Health for Reconfigurable Devices</span>
         <h1>Monitor. Adapt. Repair.</h1>
-        <p>Monitor the real-time condition of reconfigurable chips and adapt automatically for health, performance, energy efficiency, and reliability, including in hostile and constrained environments.</p>
+        <p>Know what every FPGA you run can really do, and see failure coming before it arrives. A health layer for the chips you already have.</p>
         <div class="hero-actions">
           <a class="btn" href="/demo/">Schedule a Demo</a>
           <a class="btn ghost" href="/industries/">Explore Industries</a>
@@ -62,11 +62,10 @@
   <section>
     <div class="wrap">
       <div class="section-head">
-        <span class="mono eyebrow">Solutions</span>
+        <span class="mono eyebrow">The Problem</span>
         <h2>Chips are built to a fixed, idealized average. Their real-world condition tells a different story.</h2>
-        <p>As chips heat, cool, and age, and due to natural variation from manufacturing, their real performance and energy characteristics drift from the assumptions they were designed against. Conventional design accounts for this by simply overengineering for the worst case, a reasonable tradeoff historically, but one that wastes energy and performance across every chip in the fleet.</p>
+        <p>Every device drifts as it heats, cools and ages. Without a way to see that, the only safe choice is to run every chip to cautious settings chosen years earlier. That is the tradeoff: you give up performance you cannot prove, and you still cannot say which part will fail next.</p>
       </div>
-      <div class="card-grid" id="solutions-grid"></div>
     </div>
   </section>
 
@@ -74,62 +73,22 @@
     <div class="wrap">
       <div class="section-head">
         <span class="mono eyebrow">How It Works</span>
-        <h2>A closed loop system on unmodified silicon that can help reconfigurable chips to monitor themselves and adapt to their unique set of conditions, and further repair themselves. </h2>
+        <h2>Sense. Track. Act.</h2>
+        <p>One health layer, three jobs, all while your systems keep running.</p>
       </div>
       <div class="steps" id="steps-grid"></div>
     </div>
   </section>
 
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <span class="mono eyebrow">Capabilities</span>
-        <h2>What the platform actually does, capability by capability</h2>
-        <p>Every capability below runs on real hardware, measured on the chip itself, not modeled from a spec sheet.</p>
-      </div>
-      <div class="card-grid">
-        <div class="card">
-          <h3>Pre-Production Characterization</h3>
-          <p>Each chip is measured before it ever enters service, so its real capability is known going in, not assumed from a worst-case default.</p>
-        </div>
-        <div class="card">
-          <h3>In-Field Characterization &amp; Tuning</h3>
-          <p>That same measurement continues after deployment, under real conditions, with performance retuned to match what the chip can actually do right now.</p>
-        </div>
-        <div class="card">
-          <h3>On-Chip Monitoring</h3>
-          <p>Health and operating condition are tracked continuously from inside the chip, with no external test equipment and no interruption to the workload running on it.</p>
-        </div>
-        <div class="card">
-          <h3>Adaptive Compensation</h3>
-          <p>Chip operation is automatically tuned to the real, measured condition of each individual device rather than a fixed worst-case average, adjusting as conditions change over time.</p>
-        </div>
-        <div class="card">
-          <h3>Aging Prediction</h3>
-          <p>Each chip is tracked against its own baseline over time, so degradation is caught as a measurable trend, not discovered as a surprise failure.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <section>
     <div class="wrap">
       <div class="section-head">
         <span class="mono eyebrow">Why This Matters</span>
-        <h2>A more efficient world starts with what we've already built.</h2>
-        <p style="font-weight: 600; color: var(--ink);">Our vision: infrastructure that makes computing adaptable, evolvable, and sustainable, built for the demands of AI and beyond.</p>
-        <p>Electricity demand is growing faster than it has in decades, and not from one source, data centers, telecom networks, aerospace and satellite systems, and everyday infrastructure are all drawing more power as the world runs more of itself through computing. The instinct everywhere is the same: build more capacity, more hardware.</p>
-        <p>That's the tradeoff sitting inside almost every deployed chip today: designed once for a worst case, then run that way forever, whether or not the worst case ever shows up. Fluid Silicon closes that gap, wherever it shows up, which means lower energy cost, fewer field failures, and hardware that keeps working longer than its original spec assumed, whether that hardware sits in a data center, a cell tower, or a satellite.</p>
-      </div>
-      <div class="stat-row">
-        <div class="step" style="max-width: 520px; flex: 1;">
-          <p style="color: var(--ink-soft); font-size: 16.5px; margin-bottom: 8px;">Global electricity demand is forecast to grow 3.6% a year through 2030, about 50% faster than the previous decade.</p>
-          <p class="mono" style="font-size: 12px; color: var(--ink-soft);">Source: IEA, "Electricity 2026"</p>
-        </div>
-        <div class="step" style="max-width: 520px; flex: 1;">
-          <p style="color: var(--ink-soft); font-size: 16.5px; margin-bottom: 8px;">The semiconductor industry's own research consortium has projected that computing could become unsustainable by 2040, with the energy required for computing exceeding the world's total energy production.</p>
-          <p class="mono" style="font-size: 12px; color: var(--ink-soft);">Source: Semiconductor Industry Association / Semiconductor Research Corporation</p>
-        </div>
+        <h2>Smaller transistors need certainty.</h2>
+        <p>Each new process node packs more transistors into less space. That has made chips faster and more efficient, but also more varied from one chip to the next, quicker to age, and more likely to carry hidden defects that only show up in the field. So systems hold back performance behind wide safety margins and keep spare hardware in reserve, just in case.</p>
+        <p>When every device can report what it can do and when it will need attention, that uncertainty shrinks. Each chip runs at its proven limits for longer, replacements happen on schedule, and less hardware sits idle as insurance. More computing for less.</p>
+        <p style="font-weight: 600; color: var(--ink); font-size: 19px; margin-top: 32px;">Our vision: every team sees the true limits of every chip it runs.</p>
       </div>
     </div>
   </section>
@@ -138,8 +97,7 @@
     <div class="wrap">
       <div class="section-head">
         <span class="mono eyebrow">Industries</span>
-        <h2>Built for High-Reliability Bounds and Tight Energy and Performance Requirements.
-        </h2>
+        <h2>Built for systems where failure is expensive and performance has to be proven.</h2>
       </div>
       <div class="industry-grid" id="industry-grid"></div>
     </div>
@@ -153,7 +111,7 @@
         <p>Fluid Silicon grew out of reconfigurable computing research at the University of Pennsylvania and a decades-long effort on reconfigurable systems.</p>
       </div>
       <div class="logo-row" id="recognition-row"></div>
-      <p style="margin-top: 56px; font-size: 19px;">This is what we're building toward: a world where computing keeps scaling without its energy footprint scaling alongside it, starting with the chips already in the field today.</p>
+      <p style="margin-top: 56px; font-size: 19px;">A health layer for the chips you already run, and the certainty to get more from every one of them.</p>
       <div class="hero-actions" style="margin-top: 24px;">
         <a class="btn" href="/demo/">Schedule a Demo</a>
       </div>

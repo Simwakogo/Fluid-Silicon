@@ -47,7 +47,7 @@ header {
 .nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
 
 .brand { display: flex; align-items: center; text-decoration: none; }
-.brand-logo { height: 30px; width: auto; display: block; }
+.brand-logo { height: 23px; width: auto; display: block; }
 .brand-text {
   display: none;
   font-family: "IBM Plex Mono", monospace;
@@ -81,6 +81,7 @@ header {
   display: none;
   background: none;
   border: 1px solid var(--ink);
+  color: var(--ink);
   padding: 6px 12px;
   font-family: "IBM Plex Mono", monospace;
   font-size: 13px;

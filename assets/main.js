@@ -136,8 +136,8 @@ if (demoForm) {
 
 // Site search
 const SEARCH_INDEX = [
-  { title: "Home", url: "/", snippet: "Monitor, adapt, and repair reconfigurable chips in real time.", keywords: "monitor adapt repair silicon health monitoring reconfigurable chips FPGA energy efficiency reliability vision mission why this matters" },
-  { title: "Industries", url: "/industries/", snippet: "Aerospace & Defense, Hyperscale & Cloud, Telecom & High-Reliability, Finance & HFT.", keywords: "aerospace defense hyperscale cloud telecom finance HFT industries segments" },
+  { title: "Home", url: "/", snippet: "Monitor, adapt, and repair reconfigurable chips in real time.", keywords: "monitor adapt repair silicon health layer monitoring reconfigurable chips FPGA reliability certainty failure prediction limits energy efficiency vision mission why this matters" },
+  { title: "Industries", url: "/industries/", snippet: "Aerospace & Defense, Data Center & Hyperscale, Telecom & High-Reliability, Finance & HFT.", keywords: "aerospace defense hyperscale cloud telecom finance HFT industries segments" },
   { title: "Our Team", url: "/team/", snippet: "Nhlanhla Mavuso and Dr. André DeHon.", keywords: "about team our team founder CEO Nhlanhla Mavuso Andre DeHon advisor leadership technical advisory President's Sustainability Prize Penn recognition scholar linkedin" },
   { title: "Careers", url: "/careers/", snippet: "Open roles at Fluid Silicon in Philadelphia.", keywords: "careers jobs open roles hiring FPGA engineer systems software engineer intern internship" },
   { title: "FPGA Engineer", url: "/jobs/fpga-engineer/", snippet: "Full-time FPGA Engineer role in Philadelphia.", keywords: "FPGA engineer RTL SystemVerilog VHDL job role full-time" },
