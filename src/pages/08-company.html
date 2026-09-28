@@ -1,0 +1,119 @@
+<!--meta
+{"path": "/company/", "nav": "company", "doc_title": "About and team | Fluid Silicon", "description": "Fluid Silicon builds silicon that reports its own health, so every team sees the true limits of every chip it runs. Founded on University of Pennsylvania research, based in Philadelphia. Meet the team."}
+-->
+<section class="hero on-dark hero--inner" aria-labelledby="co-h1">
+  <div class="wrap">
+    <div class="hero-copy">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Company</span></nav>
+      <p class="kicker">About Fluid Silicon</p>
+      <h1 id="co-h1">Every team should see the true limits of every chip it runs.</h1>
+      <p class="lead">We give the people who run critical systems a clear view of every chip's health and capability. Hardware you can see is hardware you can trust, and hardware you can trust does more with less.</p>
+      <div class="btn-row"><a class="btn btn--primary" href="/technology/">Our technology {{arrow}}</a><a class="btn btn--ghost" href="/careers/">Careers</a></div>
+    </div>
+    <div class="hero-visual">{{fabric:fabric-co}}</div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="co-idea">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">The idea</p>
+      <h2 id="co-idea">A different way to close the gap between design and deployment.</h2>
+      <p>Every chip is engineered once, for a worst-case scenario, then run that way for its entire life, regardless of how it actually performs once deployed. That is a reasonable approach given what has been possible to measure in the field. But as transistors shrink, the gap between how a chip was designed and how it actually behaves keeps widening, and it gets harder to see.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card"><p class="tag">What we build</p><h3>A health layer for the chip</h3><p>A small region beside your design that measures the timing of every logic element while the chip runs, so the chip can report its own condition. <a href="/technology/">How it works</a></p></div>
+      <div class="card"><p class="tag">What it changes</p><h3>Uncertainty becomes a number</h3><p>What each chip can sustain, where it is weak, how fast it is aging and when it will need attention, measured rather than assumed.</p></div>
+      <div class="card"><p class="tag">Where it runs today</p><h3>AMD and Altera FPGAs</h3><p>Families from 28 nm to 10 nm class, integrated through each vendor's own flow, deployed on your site. <a href="/technology/devices/">Device support</a></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--raised" aria-labelledby="co-team" data-people="allowed">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Team</p>
+      <h2 id="co-team">Built by the people who did the research.</h2>
+      <p>A founder who saw the biggest waste in deployed hardware as uncertainty, and a researcher who spent decades on the science underneath it.</p>
+    </div>
+    {{team}}
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="co-award">
+  <div class="wrap split split--top">
+    <div class="stack">
+      <p class="kicker">Recognition</p>
+      <h2 id="co-award">President's Sustainability Prize, 2026.</h2>
+      <p class="lead">The University of Pennsylvania awarded Fluid Silicon its President's Sustainability Prize in 2026, one of the largest awards of its kind in higher education.</p>
+      <p><a class="arrow-link" href="https://penntoday.upenn.edu/news/penn-student-develops-way-computer-chips-run-more-efficiently" rel="noopener">Read the Penn Today story</a></p>
+    </div>
+    {{prize_quote}}
+  </div>
+</section>
+
+<section class="vision" aria-labelledby="co-next">
+  <div class="wrap">
+    <div class="stack">
+      <p class="kicker">Where we're headed</p>
+      <h2 id="co-next">FPGAs are where we start.</h2>
+      <p class="lead">Fluid Silicon has demonstrated its technology on real commercial FPGAs. The next phase is putting it to work wherever chips have to be trusted, and growing the technical team to get there.</p>
+    </div>
+    <div class="path">
+      <div><span class="n">1</span><div><h3>Today</h3><p>Per-element measurement on AMD and Altera parts already in production. Evaluations start read-only, on a sample of your cards.</p></div></div>
+      <div><span class="n">2</span><div><h3>Next</h3><p>The full loop, monitor, model, tune and repair, deployed across data centers, aerospace and defense, telecommunications and the other industries where reliability and performance matter most.</p></div></div>
+      <div><span class="n">3</span><div><h3>Further</h3><p>A chip that reports its own condition is useful wherever silicon has to be trusted. FPGAs are the first place it can be added without new silicon; they are the first step, not the last.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="co-partners" id="partners">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Partners and ecosystem</p>
+      <h2 id="co-partners">The parts and flows you already use.</h2>
+      <p>The health layer integrates through each vendor's own toolchain: AMD Vivado for AMD parts, Altera Quartus for Altera parts. Fluid Silicon is not affiliated with or endorsed by either vendor; product names are their trademarks.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card"><p class="tag">Devices</p><h3>AMD and Altera families</h3><p>AMD 7-series, UltraScale and UltraScale+ supported today, with select Altera Agilex 7 devices. Stratix 10, Arria 10 and Versal AI Core are in development. <a href="/technology/devices/">Device support</a></p></div>
+      <div class="card"><p class="tag">Research</p><h3>University of Pennsylvania</h3><p>Fluid Silicon grew out of reconfigurable-computing research at Penn. Research collaborations on variation, aging and reliability are welcome.</p></div>
+      <div class="card"><p class="tag">Partner program</p><h3>Bring measured timing health to your customers</h3><p>Board and system makers, cloud and infrastructure operators, systems integrators, EDA and tool vendors, and aerospace and defense primes. Every partnership starts with a technical session and an evaluation on real hardware. <a href="/contact/">Talk to us</a></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--raised" aria-labelledby="co-how">
+  <div class="wrap split">
+    <div class="stack">
+      <p class="kicker">How we work</p>
+      <h2 id="co-how">Measurement before opinion.</h2>
+      <p class="lead">A number measured on your chip is worth more than a guardband set for someone else's. Margin should cover measurement error, not uncertainty.</p>
+    </div>
+    <div class="grid grid-2">
+      <div class="feature">{{icon:monitor}}<h3>Measured on the chip</h3><p>Every logic element, at speed, in production, with no downtime.</p></div>
+      <div class="feature">{{icon:doc}}<h3>Decisions on evidence</h3><p>Replacements, upgrades and retirements rest on data from the card itself.</p></div>
+      <div class="feature">{{icon:lock}}<h3>Your design, your control</h3><p>Nothing changes on a production system without your approval.</p></div>
+      <div class="feature">{{icon:layers}}<h3>Vendor-neutral by design</h3><p>One health metric that means the same thing on every part you run.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="co-where">
+  <div class="wrap split split--top">
+    <div class="stack">
+      <p class="kicker">Where we are</p>
+      <h2 id="co-where">Philadelphia, Pennsylvania.</h2>
+      <p class="lead">One office, one bench, near the university where the research began.</p>
+    </div>
+    {{location}}
+  </div>
+</section>
+
+<section class="sec sec--raised" aria-labelledby="co-news">
+  <div class="wrap">
+    <div class="eyebrow-row"><h2 id="co-news">Latest announcements</h2><a class="arrow-link" href="/company/news/">News and press</a></div>
+    {{news_cards:3}}
+  </div>
+</section>
+
+{{cta_careers}}

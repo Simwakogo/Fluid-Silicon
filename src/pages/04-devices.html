@@ -1,0 +1,71 @@
+<!--meta
+{"path": "/technology/devices/", "nav": "technology", "doc_title": "Device support | Fluid Silicon", "description": "Supported AMD and Altera FPGA families and process nodes, with the status of each: supported, select devices or in development."}
+-->
+<section class="page-hero" aria-labelledby="dev-h1">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/technology/">Technology</a><span aria-hidden="true">/</span><span>Device support</span></nav>
+    <h1 id="dev-h1">Device support.</h1>
+    <p class="lead">One platform across AMD and Altera parts. Supported today from 28 nm to 10 nm class, with 14 nm and 7 nm families in development. Status as of September 2026.</p>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="dev-table-h">
+  <div class="wrap">
+    <h2 id="dev-table-h" class="visually-hidden">Families and status</h2>
+    {{device_table:devices}}
+  </div>
+</section>
+
+<section class="sec sec--raised sec--line" aria-labelledby="dev-layers">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="dev-layers">Two layers, so your view never changes.</h2>
+      <p>What you see and act on is the same on every vendor. What differs between vendors is handled by Fluid Silicon.</p>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <p class="tag">Vendor-neutral, design-agnostic</p>
+        <h3>What your team works with</h3>
+        <ul class="bullets">
+          <li>Health metric: measured slack as a share of the clock period, per logic-element link</li>
+          <li>Telemetry schema</li>
+          <li>Alert thresholds</li>
+          <li>Aging model and time-to-threshold</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="tag">Vendor-specific</p>
+        <h3>What Fluid Silicon handles</h3>
+        <ul class="bullets">
+          <li>Integration with each vendor's toolchain, including AMD Vivado and Altera Quartus</li>
+          <li>Calibration for each family and process node</li>
+          <li>Qualification of new families before they are marked supported</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--line" aria-labelledby="dev-road">
+  <div class="wrap split">
+    <div class="stack">
+      <h2 id="dev-road">On the roadmap.</h2>
+      <p class="lead">Newer nodes and RF-sampling parts are in development.</p>
+    </div>
+    <ul class="bullets">
+      <li>Altera Stratix 10 and Arria 10 (14 nm and 20 nm)</li>
+      <li>AMD Versal AI Core (7 nm)</li>
+      <li>RF-sampling adaptive SoCs for aerospace and defense, such as AMD Versal RF</li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec sec--raised sec--line sec--tight" aria-labelledby="dev-ask">
+  <div class="wrap split">
+    <h2 class="fs-4" id="dev-ask">Don't see your part?</h2>
+    <div class="stack">
+      <p class="muted">Tell us which families you run and how many cards. It shapes what we qualify next.</p>
+      <p><a class="btn btn--primary" href="/demo/">Tell us about your fleet {{arrow}}</a></p>
+    </div>
+  </div>
+</section>

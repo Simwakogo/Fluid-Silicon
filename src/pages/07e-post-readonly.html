@@ -1,0 +1,56 @@
+<!--meta
+{"path": "/blog/read-only-first/", "nav": "resources", "doc_title": "Read-only first: how an evaluation runs | Fluid Silicon", "description": "Evaluate, observe, optimize, repair. The four opt-in steps of a Fluid Silicon rollout, what each one needs from your team, and why nothing changes until you say so."}
+-->
+<section class="page-hero post-hero" aria-labelledby="post-h1">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/blog/">Blog</a><span aria-hidden="true">/</span><span>Read-only first</span></nav>
+    <p class="kicker">Blog</p>
+    <h1 id="post-h1">Read-only first: how an evaluation runs.</h1>
+    <p class="lead">Fleet operators are right to be careful about anything that touches a production card. Here is what a Fluid Silicon rollout looks like, step by step, and why every step is one you choose.</p>
+    <p class="post-meta"><span>September 2026</span><span>Fluid Silicon</span><span>4 minute read</span></p>
+  </div>
+</section>
+
+<section class="sec" aria-label="Article">
+  <div class="wrap post-layout">
+    <article class="post-body">
+      <h2>Four steps, all opt-in</h2>
+      <ol class="steps">
+        <li><h3>Evaluate</h3><p>A sample of your cards in a staging environment. Every LUT and carry block is measured at speed, and you get a per-card timing and variation report. No operating point changes.</p><p class="meta">Read-only · staging</p></li>
+        <li><h3>Observe</h3><p>Monitoring and aging models go to production. You see healthy, watch and action counts, a time-to-threshold per card, and alerts on thresholds you set. Still nothing changes on a card.</p><p class="meta">Read-only · production</p></li>
+        <li><h3>Optimize</h3><p>Voltage and frequency tuning is turned on by policy, in maintenance windows you schedule. Each change is handshake-gated and measured again within a second.</p><p class="meta">Opt-in · scheduled · handshake-gated</p></li>
+        <li><h3>Repair</h3><p>Degrading resources are swapped for healthy ones through your change process, and the repaired card is measured again.</p><p class="meta">Opt-in · scheduled · handshake-gated</p></li>
+      </ol>
+      <p>You can stay at any step as long as you want. Many fleets get what they need from the first two.</p>
+
+      <h2>What each step needs from your team</h2>
+      <ul class="bullets">
+        <li><strong>Evaluate:</strong> a handful of cards, a staging slot and someone who knows the design. The resource reservation for the health layer is planned together here.</li>
+        <li><strong>Observe:</strong> a destination for telemetry (one vendor-neutral schema fits the monitoring you already run) and your alert thresholds.</li>
+        <li><strong>Optimize:</strong> a policy: which cards, which windows, which coordination (per device, per server or fleet-wide), and who approves.</li>
+        <li><strong>Repair:</strong> a place in your change process for a scheduled, approved action.</li>
+      </ul>
+
+      <h2>What never changes</h2>
+      <div class="grid grid-2">
+        <div class="card"><h3>Your design</h3><p>Your logic, routing and I/O stay as you built them. The health layer occupies a small, fixed region beside them: under 1% of LUTs and 5% of flip-flops on a production shell.</p></div>
+        <div class="card"><h3>Your access model</h3><p>No JTAG port has to be exposed on production systems. Nothing is written into your design's logic.</p></div>
+        <div class="card"><h3>Your availability</h3><p>Your design keeps computing for the whole measurement. A full sweep takes about a second.</p></div>
+        <div class="card"><h3>Your control</h3><p>Read-only by default. Every action beyond that is opt-in, scheduled and handshake-gated.</p></div>
+      </div>
+      <div class="callout">
+        <h3>What we keep back</h3>
+        <p>Sensor architecture, deployment mechanics and calibration methods are shared with evaluation partners under NDA. An NDA is available on request. <a href="/demo/">Ask for a technical session.</a></p>
+      </div>
+    </article>
+    <aside class="post-side" aria-label="Related">
+      <h2>Related</h2>
+      <ul><li><a href="/technology/security/">Security and integration</a></li><li><a href="/solutions/fleet-operations/">Fleet Deployment &amp; Operations</a></li><li><a href="/solutions/card-qualification/">Card Qualification</a></li></ul>
+      <h2>Keep reading</h2>
+      <ul><li><a href="/blog/one-health-metric-many-generations/">Five board generations, one health metric</a></li><li><a href="/blog/the-fpga-margin-problem/">The FPGA margin problem</a></li></ul>
+      <p><a class="btn btn--primary btn--small" href="/demo/">Request a demo</a></p>
+    </aside>
+  </div>
+</section>
+
+{{cta}}

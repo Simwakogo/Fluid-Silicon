@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Fluid Silicon"><title>Fluid Silicon</title><g class="fs-mark">
+  <rect x="0" y="0" width="64" height="64" rx="3" fill="#C64E00"/>
+  <rect x="3.5" y="3.5" width="57" height="57" rx="1.5" fill="#F06024"/>
+  <path d="M3.5 3.5 H60.5 L58.8 5.2 H5.2 V58.8 L3.5 60.5 Z" fill="#ffffff" opacity=".10"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="3.3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M17.6 27.4 V19.4 Q17.6 15 22 15 H40.6"/>
+    <path d="M17.6 42.6 V35.4 Q17.6 31 22 31 H31.2"/>
+  </g>
+  <g fill="#F06024" stroke="#FFFFFF" stroke-width="3.1">
+    <circle cx="44.4" cy="15" r="3.7"/>
+    <circle cx="35" cy="31" r="3.7"/>
+    <circle cx="17.6" cy="46.6" r="3.9"/>
+  </g>
+</g></svg>

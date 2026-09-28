@@ -1,0 +1,60 @@
+<!--meta
+{"path": "/contact/", "nav": "company", "doc_title": "Contact | Fluid Silicon", "description": "Contact Fluid Silicon about a demo, an evaluation, a partnership, an event or a press enquiry. Based in Philadelphia, Pennsylvania."}
+-->
+<section class="page-hero" aria-labelledby="ct-h1">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Contact</span></nav>
+    <h1 id="ct-h1">Contact Fluid Silicon</h1>
+    <p class="lead">Tell us what you're working on. We reply within two business days.</p>
+  </div>
+</section>
+
+<section class="sec" aria-label="Contact form">
+  <div class="wrap split split--form">
+    <div>
+      <form class="form" id="contact-form" novalidate data-form="contact">
+        <div class="form-row">
+          <div class="field"><label for="ct-name">Name</label><input id="ct-name" name="name" type="text" autocomplete="name" required aria-describedby="ct-name-err"><p class="err" id="ct-name-err" hidden></p></div>
+          <div class="field"><label for="ct-email">Work email</label><input id="ct-email" name="email" type="email" autocomplete="email" required aria-describedby="ct-email-err"><p class="err" id="ct-email-err" hidden></p></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="ct-company">Company or organization</label><input id="ct-company" name="company" type="text" autocomplete="organization"></div>
+          <div class="field"><label for="ct-topic">What is this about?</label>
+            <select id="ct-topic" name="topic">
+              <option value="Demo or evaluation">Demo or evaluation</option>
+              <option value="Partnership">Partnership</option>
+              <option value="Event or speaking">Event or speaking</option>
+              <option value="Press">Press</option>
+              <option value="Careers">Careers</option>
+              <option value="Other">Other</option>
+            </select></div>
+        </div>
+        <div class="field"><label for="ct-message">Message</label><textarea id="ct-message" name="message" rows="6" required aria-describedby="ct-message-err" placeholder="Part numbers, fleet size, what you'd like to see, or anything else"></textarea><p class="err" id="ct-message-err" hidden></p></div>
+        <div class="hp" aria-hidden="true"><label for="ct-website">Leave this field empty</label><input id="ct-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <label class="opt-line"><input type="checkbox" id="ct-consent" name="consent" required aria-describedby="ct-consent-err"> <span>Fluid Silicon may contact me about this message, as described in the <a href="/privacy/">privacy notice</a>.</span></label>
+        <p class="err" id="ct-consent-err" hidden></p>
+        <div class="btn-row"><button class="btn btn--primary" type="submit" id="ct-submit">Send message</button></div>
+        <p class="form-status" id="ct-status" role="status" aria-live="polite"></p>
+      </form>
+      <div class="form-done" id="ct-done" hidden tabindex="-1">
+        <h2>Message received.</h2>
+        <p class="muted">Thank you. We'll reply within two business days.</p>
+      </div>
+    </div>
+    <aside class="aside" aria-label="Other ways to reach us">
+      <h2 class="fs-3">Other ways to reach us</h2>
+      <div class="contact-ways">
+        <div class="contact-way">{{icon:mail}}<div><h3>Email the team</h3><p><a href="mailto:{{email}}">{{email}}</a></p></div></div>
+        <div class="contact-way">{{icon:calendar}}<div><h3>Book a demo</h3><p>A 30-minute session with live measurements. <a href="/demo/">Request a demo</a></p></div></div>
+        <div class="contact-way">{{icon:doc}}<div><h3>Careers</h3><p>Résumés go to <a href="mailto:{{careers_email}}">{{careers_email}}</a> or through the <a href="/apply/">application form</a>.</p></div></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="sec sec--raised" aria-labelledby="ct-loc">
+  <div class="wrap split split--top">
+    <div class="stack"><p class="kicker">Our location</p><h2 id="ct-loc">Philadelphia, Pennsylvania.</h2></div>
+    {{location}}
+  </div>
+</section>

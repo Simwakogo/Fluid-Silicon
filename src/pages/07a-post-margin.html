@@ -1,0 +1,71 @@
+<!--meta
+{"path": "/blog/the-fpga-margin-problem/", "nav": "resources", "doc_title": "The FPGA margin problem | Fluid Silicon", "description": "Why FPGA timing models carry 30–54% margin for a worst case most chips never see, and what variation, aging and longer service lives cost fleet operators."}
+-->
+<section class="page-hero post-hero" aria-labelledby="post-h1">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/blog/">Blog</a><span aria-hidden="true">/</span><span>The FPGA margin problem</span></nav>
+    <p class="kicker">Blog</p>
+    <h1 id="post-h1">The FPGA margin problem.</h1>
+    <p class="lead">Vendors must guarantee timing for every chip they ship, so their models describe the worst one. That is the right call for a vendor. It also means every card in your fleet carries that chip's margin, for every year it runs, and here is what per-chip measurement changes.</p>
+    <p class="post-meta"><span>September 2026</span><span>Fluid Silicon</span><span>5 minute read</span></p>
+  </div>
+</section>
+
+<section class="sec" aria-label="Article">
+  <div class="wrap post-layout">
+    <article class="post-body">
+      <h2>Variation is a first-order design constraint</h2>
+      <p>Defective and weak transistors show up as variation in the logic you build on: lookup tables (LUTs), carry blocks and interconnect. At 16, 14 and 7 nm, random variation alone exceeds 20%, on top of systematic variation across the die.</p>
+      <ul class="bullets">
+        <li><strong>Random variation.</strong> Chip-to-chip and element-to-element scatter. More than 20% at 16, 14 and 7 nm.</li>
+        <li><strong>Systematic variation.</strong> Smooth gradients across the die from the manufacturing process.</li>
+        <li><strong>Spatial variation.</strong> Neighbouring resources that drift together, so one weak region can hold several critical paths.</li>
+      </ul>
+      <p>These variations force conservative timing models that guarantee the slowest operating corner. Every other chip pays for that guarantee in energy and performance.</p>
+
+      <h2>Margins are set once, for a chip that is statistically rare</h2>
+      <p>Vendor timing models cover the worst die: highly defective, at elevated voltage, at high temperature and at the end of its life. Most of your chips are nowhere near that corner, yet every one of them runs as if it were. On production shells at realistic utilization we measure 30–54% of timing margin carried for that corner.*</p>
+      {{margin:margin-post}}
+      <div class="grid grid-3">
+        <div class="card"><h3>A fleet-wide margin</h3><p>Has to cover the worst chip in the whole population, including chips that never reach your racks.</p></div>
+        <div class="card"><h3>A per-chip margin</h3><p>Only has to cover its own measurement error, plus drift until the next measurement. Fluid Silicon measures each link to under 20 ps.</p></div>
+        <div class="card"><h3>At scale</h3><p>Measuring more chips finds more tails. It does not add margin to the chips that don't have them.</p></div>
+      </div>
+
+      <h2>Service life keeps stretching</h2>
+      <p>Cards now run six years and more in production, beyond what vendors planned for. Large operators keep several board generations in service at the same time. The FPGA 2026 paper on hyperscale FPGA engineering at Microsoft puts it plainly:</p>
+      <figure class="quote">
+        <blockquote>“Microsoft therefore maintains many FPGA parts and families in production simultaneously, supporting multiple board generations for a decade or longer. Currently, Azure has 5 generations of FPGA boards actively in deployment.”</blockquote>
+        <figcaption>{{cite:fpga26}}</figcaption>
+      </figure>
+      <p>The same operator reported more than a million hosts with FPGA-based SmartNICs back in 2018 ({{cite:nsdi}}). At that scale, a margin set for the worst chip in the population is a line item.</p>
+
+      <h2>Silicon as a black box</h2>
+      <p>Without visibility into the real characteristics of each logic component, a failure has no attribution. Teams replace boards on a schedule or after an outage. They cannot prove which cards are healthy, which are drifting or which logic caused a fault. An error in one card can take capacity offline or travel downstream before anyone notices.</p>
+      <p>Per-element measurement turns each card into evidence: what it can sustain today, how fast it is changing and when it will need attention.</p>
+
+      <h2>What the uncertainty costs</h2>
+      <ul class="bullets">
+        <li>Energy spent on voltage the chip does not need</li>
+        <li>Performance left behind a clock set for the worst die</li>
+        <li>Spare hardware held in reserve, just in case</li>
+        <li>Surprise failures that remove capacity, and errors that propagate before anyone catches them</li>
+        <li>Maintenance and downtime planned around guesses</li>
+      </ul>
+      <div class="callout">
+        <h3>What changes with measurement</h3>
+        <p>Measure every chip and every element at speed, and the margin you need shrinks to measurement error plus drift until the next measurement. <a href="/solutions/power-performance/">Power and performance</a> is where most fleets start.</p>
+      </div>
+      <p class="footnote">*Fluid Silicon measurements. They vary with variation pattern, workload, vendor and device age. Cited figures are for context; Fluid Silicon is not affiliated with Microsoft.</p>
+    </article>
+    <aside class="post-side" aria-label="Related">
+      <h2>Related solutions</h2>
+      <ul><li><a href="/solutions/power-performance/">Power &amp; Performance</a></li><li><a href="/solutions/card-qualification/">Card Qualification</a></li><li><a href="/solutions/failure-prediction-diagnostics/">Failure Prediction &amp; Diagnostics</a></li></ul>
+      <h2>Keep reading</h2>
+      <ul><li><a href="/blog/aging-is-measurable/">Aging is measurable, in the field.</a></li><li><a href="/blog/what-a-point-of-power-is-worth/">What a point of card power is worth</a></li></ul>
+      <p><a class="btn btn--ghost btn--small" href="/assets/docs/fluid-silicon-technical-brief.pdf">Technical brief (PDF)</a></p>
+    </aside>
+  </div>
+</section>
+
+{{cta}}

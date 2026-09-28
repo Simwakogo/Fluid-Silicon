@@ -1,0 +1,91 @@
+<!--meta
+{"path": "/apply/", "nav": "careers", "doc_title": "Apply | Fluid Silicon", "description": "Apply for a role or internship at Fluid Silicon in Philadelphia."}
+-->
+<section class="page-hero" aria-labelledby="ap-h1">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/careers/">Careers</a><span aria-hidden="true">/</span><span>Apply</span></nav>
+    <h1 id="ap-h1">Apply</h1>
+    <p class="lead" id="apply-role-line">Tell us about yourself and the work you're proud of. It takes about five minutes.</p>
+  </div>
+</section>
+
+<section class="sec" aria-label="Application form">
+  <div class="wrap split split--form">
+    <div>
+      <form class="form" id="apply-form" novalidate data-form="apply">
+        <div class="form-row">
+          <div class="field"><label for="apply-name">Full name</label><input id="apply-name" name="name" type="text" autocomplete="name" required aria-describedby="apply-name-err"><p class="err" id="apply-name-err" hidden></p></div>
+          <div class="field"><label for="apply-email">Email</label><input id="apply-email" name="email" type="email" autocomplete="email" required aria-describedby="apply-email-err"><p class="err" id="apply-email-err" hidden></p></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="apply-phone">Phone <span class="opt">(optional)</span></label><input id="apply-phone" name="phone" type="tel" autocomplete="tel"></div>
+          <div class="field"><label for="apply-location">Where you're based</label><input id="apply-location" name="location" type="text" autocomplete="address-level2" placeholder="City, country" required aria-describedby="apply-location-err"><p class="err" id="apply-location-err" hidden></p></div>
+        </div>
+        <div class="field"><label for="apply-role">Role</label>
+          <select id="apply-role" name="role" required aria-describedby="apply-role-err">
+            <option value="">Choose a role</option>
+            <option value="fpga-engineer">FPGA Engineer</option>
+            <option value="systems-software-engineer">Systems Software Engineer, HW/SW Co-Design</option>
+            <option value="software-engineering-intern">Software Engineering Intern</option>
+            <option value="hardware-design-fpga-intern">Hardware Design (FPGA) Intern</option>
+            <option value="business-development-intern">Business Development Intern</option>
+            <option value="other">Other</option>
+          </select><p class="err" id="apply-role-err" hidden></p></div>
+        <div class="field" data-show-if="role=other" hidden><label for="apply-role-other">Which role?</label><input id="apply-role-other" name="roleOther" type="text"></div>
+        <div class="form-row" data-show-if="role=intern" hidden>
+          <div class="field"><label for="apply-school">School</label><input id="apply-school" name="school" type="text" autocomplete="organization"></div>
+          <div class="field"><label for="apply-grad">Expected graduation</label><input id="apply-grad" name="graduation" type="month"></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="apply-start">Earliest start date</label><input id="apply-start" name="startDate" type="date"></div>
+          <fieldset class="field"><legend>Can you work on-site in Philadelphia?</legend>
+            <div class="options options--1">
+              <label class="opt-line"><input type="radio" name="onsite" value="Yes, I live nearby" id="apply-onsite-1"> Yes, I live nearby</label>
+              <label class="opt-line"><input type="radio" name="onsite" value="Yes, I would relocate" id="apply-onsite-2"> Yes, I would relocate</label>
+              <label class="opt-line"><input type="radio" name="onsite" value="Not sure yet" id="apply-onsite-3"> Not sure yet</label>
+            </div></fieldset>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="apply-linkedin">LinkedIn <span class="opt">(optional)</span></label><input id="apply-linkedin" name="linkedin" type="url" placeholder="https://" inputmode="url"></div>
+          <div class="field"><label for="apply-portfolio">GitHub, portfolio or publications <span class="opt">(optional)</span></label><input id="apply-portfolio" name="portfolio" type="url" placeholder="https://" inputmode="url"></div>
+        </div>
+        <div class="field"><label for="apply-note">Anything you'd like us to know <span class="opt">(optional)</span></label><textarea id="apply-note" name="coverLetter" rows="5"></textarea></div>
+        <div class="form-row">
+          <fieldset class="field"><legend>Are you legally authorized to work in the United States?</legend>
+            <div class="options options--2">
+              <label class="opt-line"><input type="radio" name="workAuthorized" value="Yes" id="apply-auth-y" required> Yes</label>
+              <label class="opt-line"><input type="radio" name="workAuthorized" value="No" id="apply-auth-n"> No</label>
+            </div><p class="err" id="apply-auth-err" hidden></p></fieldset>
+          <fieldset class="field"><legend>Will you now or in the future need visa sponsorship?</legend>
+            <div class="options options--2">
+              <label class="opt-line"><input type="radio" name="needSponsorship" value="Yes" id="apply-spon-y" required> Yes</label>
+              <label class="opt-line"><input type="radio" name="needSponsorship" value="No" id="apply-spon-n"> No</label>
+            </div><p class="err" id="apply-spon-err" hidden></p></fieldset>
+        </div>
+        <div class="field"><label for="apply-resume">Résumé</label>
+          <input id="apply-resume" name="resume" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required aria-describedby="apply-resume-hint apply-resume-err">
+          <p class="hint" id="apply-resume-hint">PDF, DOC or DOCX, up to 5 MB.</p><p class="err" id="apply-resume-err" hidden></p></div>
+        <div class="hp" aria-hidden="true"><label for="apply-website">Leave this field empty</label><input id="apply-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <label class="opt-line"><input type="checkbox" id="apply-consent" name="consent" required aria-describedby="apply-consent-err"> <span>I agree that Fluid Silicon may use this information to consider me for roles, as described in the <a href="/privacy/">privacy notice</a>.</span></label>
+        <p class="err" id="apply-consent-err" hidden></p>
+        <div class="btn-row"><button class="btn btn--primary" type="submit" id="apply-submit">Submit application</button></div>
+        <p class="form-status" id="apply-status" role="status" aria-live="polite"></p>
+      </form>
+      <div class="form-done" id="apply-done" hidden tabindex="-1">
+        <h2>Application received.</h2>
+        <p class="muted">Thank you. An engineer on the team will read it, and we'll reply within five business days.</p>
+        <p><a class="arrow-link" href="/careers/">Back to open roles</a></p>
+      </div>
+    </div>
+    <aside class="aside" aria-label="About applying">
+      <h2 class="fs-3">Before you apply</h2>
+      <ul class="bullets">
+        <li>Roles are on-site in Philadelphia, PA.</li>
+        <li>Links to code, papers or projects help more than a long cover letter.</li>
+        <li>We only ask the two standard work-authorization questions.</li>
+      </ul>
+      <p class="faint fs-0">Trouble with the form? Email your résumé to <a href="mailto:{{careers_email}}">{{careers_email}}</a>.</p>
+      {{eeo}}
+    </aside>
+  </div>
+</section>

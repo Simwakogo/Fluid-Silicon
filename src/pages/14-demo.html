@@ -1,0 +1,77 @@
+<!--meta
+{"path": "/demo/", "nav": "demo", "doc_title": "Request a demo | Fluid Silicon", "description": "See per-element FPGA timing measurements live on a supported device, and talk through an evaluation on your own cards."}
+-->
+<section class="page-hero" aria-labelledby="dm-h1">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Request a demo</span></nav>
+    <h1 id="dm-h1">Request a demo</h1>
+    <p class="lead">Live per-element timing on a supported device, and what an evaluation on your cards involves.</p>
+  </div>
+</section>
+
+<section class="sec" aria-label="Demo request">
+  <div class="wrap split split--form">
+    <div>
+      <form class="form" id="demo-form" novalidate data-form="demo">
+        <div class="form-row">
+          <div class="field"><label for="demo-name">Name</label><input id="demo-name" name="name" type="text" autocomplete="name" required aria-describedby="demo-name-err"><p class="err" id="demo-name-err" hidden></p></div>
+          <div class="field"><label for="demo-email">Work email</label><input id="demo-email" name="email" type="email" autocomplete="email" required aria-describedby="demo-email-err"><p class="err" id="demo-email-err" hidden></p></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="demo-company">Company</label><input id="demo-company" name="company" type="text" autocomplete="organization" required aria-describedby="demo-company-err"><p class="err" id="demo-company-err" hidden></p></div>
+          <div class="field"><label for="demo-title">Your role</label><input id="demo-title" name="title" type="text" autocomplete="organization-title" placeholder="For example, hardware reliability lead"></div>
+        </div>
+        <fieldset class="field"><legend>FPGA families you run</legend>
+          <div class="options">
+            <label class="opt-line"><input type="checkbox" name="families" value="AMD 7-series" id="demo-fam-1"> AMD 7-series</label>
+            <label class="opt-line"><input type="checkbox" name="families" value="AMD UltraScale" id="demo-fam-2"> AMD UltraScale</label>
+            <label class="opt-line"><input type="checkbox" name="families" value="AMD UltraScale+" id="demo-fam-3"> AMD UltraScale+</label>
+            <label class="opt-line"><input type="checkbox" name="families" value="AMD Versal" id="demo-fam-4"> AMD Versal</label>
+            <label class="opt-line"><input type="checkbox" name="families" value="Altera Agilex" id="demo-fam-5"> Altera Agilex</label>
+            <label class="opt-line"><input type="checkbox" name="families" value="Altera Stratix or Arria" id="demo-fam-6"> Altera Stratix or Arria</label>
+            <label class="opt-line"><input type="checkbox" name="families" value="Other or not sure" id="demo-fam-7"> Other or not sure</label>
+          </div></fieldset>
+        <div class="form-row">
+          <div class="field"><label for="demo-fleet">Roughly how many FPGA cards?</label>
+            <select id="demo-fleet" name="fleetSize"><option value="">Choose one</option><option>Under 100</option><option>100 to 1,000</option><option>1,000 to 10,000</option><option>More than 10,000</option><option>Designing a new system</option></select></div>
+          <div class="field"><label for="demo-industry">Industry</label>
+            <select id="demo-industry" name="industry"><option value="">Choose one</option><option>Data center and hyperscale</option><option>Aerospace and defense</option><option>Network infrastructure</option><option>Test and measurement</option><option>Other</option></select></div>
+        </div>
+        <fieldset class="field"><legend>What matters most right now?</legend>
+          <div class="options">
+            <label class="opt-line"><input type="checkbox" name="goals" value="Failure prediction and reliability" id="demo-goal-1"> Failure prediction and reliability</label>
+            <label class="opt-line"><input type="checkbox" name="goals" value="Energy efficiency" id="demo-goal-2"> Energy efficiency</label>
+            <label class="opt-line"><input type="checkbox" name="goals" value="Performance headroom" id="demo-goal-3"> Performance headroom</label>
+            <label class="opt-line"><input type="checkbox" name="goals" value="Lifecycle and replacement planning" id="demo-goal-4"> Lifecycle and replacement planning</label>
+          </div></fieldset>
+        <div class="field"><label for="demo-timeline">Timeline</label>
+          <select id="demo-timeline" name="timeline"><option value="">Choose one</option><option>Exploring</option><option>Evaluating this quarter</option><option>Evaluating in the next 6 months</option><option>Program or procurement underway</option></select></div>
+        <div class="field"><label for="demo-message">Anything else <span class="opt">(optional)</span></label><textarea id="demo-message" name="message" rows="4" placeholder="Part numbers, operating conditions, what you'd like to see"></textarea></div>
+        <div class="hp" aria-hidden="true"><label for="demo-website">Leave this field empty</label><input id="demo-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <label class="opt-line"><input type="checkbox" id="demo-consent" name="consent" required aria-describedby="demo-consent-err"> <span>Fluid Silicon may contact me about this request, as described in the <a href="/privacy/">privacy notice</a>.</span></label>
+        <p class="err" id="demo-consent-err" hidden></p>
+        <div class="btn-row"><button class="btn btn--primary" type="submit" id="demo-submit">Request a demo</button></div>
+        <p class="form-status" id="demo-status" role="status" aria-live="polite"></p>
+      </form>
+      <div class="form-done" id="demo-done" hidden tabindex="-1">
+        <h2>Request received.</h2>
+        <p class="muted" data-reply-line>We'll reply within two business days to set a time.</p>
+        <p data-calendar hidden><a class="btn btn--primary" href="#" rel="noopener" data-calendar-link>Pick a time now {{arrow}}</a></p>
+      </div>
+    </div>
+    <aside class="aside" aria-labelledby="dm-next">
+      <h2 class="fs-3" id="dm-next">What happens next</h2>
+      <ol class="steps">
+        <li><h3>We reply</h3><p>Within two business days, to set a time that works.</p></li>
+        <li><h3>A 30-minute session</h3><p>Live measurements on a supported device, and your questions about your fleet.</p></li>
+        <li><h3>An evaluation, if it fits</h3><p>A sample of your cards, read-only to start.</p></li>
+      </ol>
+      <p class="note">An NDA is available on request.</p>
+      <div class="stack">
+        <p class="faint fs-0">Prefer email?</p>
+        <div class="copy-row"><code id="demo-email-addr">{{email}}</code><button type="button" class="btn btn--ghost btn--small" data-copy="#demo-email-addr">Copy</button></div>
+      </div>
+      <p><a class="arrow-link" href="/assets/docs/fluid-silicon-technical-brief.pdf">Technical brief (PDF)</a></p>
+    </aside>
+  </div>
+</section>

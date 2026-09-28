@@ -1,0 +1,149 @@
+<!--meta
+{"path": "/", "doc_title": "Fluid Silicon | Silicon that reports its own health", "og_title": "Fluid Silicon: see what every chip can really do", "description": "Fluid Silicon measures the timing of every logic element on a chip while it runs. One measurement shows what each chip can sustain, when it will need attention and how much margin it carries. Starting with the FPGAs you already run."}
+-->
+<section class="hero on-dark" aria-labelledby="home-h1">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="kicker">Silicon that reports its own health</p>
+      <h1 id="home-h1">See what every chip can really do.</h1>
+      <p class="lead">Fluid Silicon measures the timing of every logic element on a chip while it runs. That one measurement shows what each chip can sustain, when it will need attention and how much margin it is carrying. Starting with the FPGAs you already run.</p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="/technology/">How it works {{arrow}}</a>
+        <a class="btn btn--ghost" href="/assets/docs/fluid-silicon-technical-brief.pdf">Technical brief (PDF)</a>
+      </div>
+      <p class="badge-line"><span>AMD and Altera parts</span><span>No RTL changes</span><span>Read-only to start</span><span>Runs on your site</span></p>
+    </div>
+    <div class="hero-visual">
+      {{mock:fleet|Fleet overview. Illustrative screen with example data.}}
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="home-results">
+  <div class="wrap">
+    <div class="sec-head sec-head--center">
+      <p class="kicker">The measurement</p>
+      <h2 id="home-results">Measured on production shells, at realistic utilization.</h2>
+    </div>
+    {{metrics_home}}
+  </div>
+</section>
+
+<section class="sec sec--raised" aria-labelledby="home-how">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">How it works</p>
+      <h2 id="home-how">From one measurement to every decision.</h2>
+      <p>Today a chip is characterized once, at the factory, against the worst chip that could have been made, and then run that way for life. Fluid Silicon adds a small health layer beside your design so each chip measures its own logic, at speed, for as long as it runs.</p>
+    </div>
+    <div class="split split--flip">
+      <div class="stack">
+        {{fabric:fabric-home}}
+        <p class="text-center muted fs-1">Every logic element measured, at speed, while the design runs.<br><span class="nowrap"><a href="/technology/">See how it works</a> · <a href="/technology/devices/">Device support</a></span></p>
+      </div>
+      <div class="grid grid-2">
+        <div class="feature">
+          {{icon:monitor}}
+          <h3>Measured on the chip</h3>
+          <p>Timing slack on individual LUTs, carry blocks and the links between them, while the design computes. A full sweep takes about a second; each link is resolved to under 20 ps.</p>
+        </div>
+        <div class="feature">
+          {{icon:model}}
+          <h3>Modeled per card</h3>
+          <p>An aging curve fitted to each card's own temperature history, a time-to-threshold per element, and one health metric on every vendor.</p>
+        </div>
+        <div class="feature">
+          {{icon:tune}}
+          <h3>Tuned to what it measured</h3>
+          <p>Voltage and frequency set to what each chip can sustain, in windows you schedule, with every change re-measured.</p>
+        </div>
+        <div class="feature">
+          {{icon:repair}}
+          <h3>Repaired only when needed</h3>
+          <p>Nothing in your design moves until an element degrades toward your threshold. Then only that path moves to a healthy resource, through your change process.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="home-why">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Why now</p>
+      <h2 id="home-why">The gap between the datasheet and the chip keeps widening.</h2>
+      <p>Setting one margin for the worst chip was the right call when nothing in the field could be measured. Three things have changed.</p>
+    </div>
+    {{whynow}}
+  </div>
+</section>
+
+<section class="sec sec--raised" aria-labelledby="home-sol">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">What it enables</p>
+      <h2 id="home-sol">One measurement. Six ways to use it.</h2>
+      <p>Every solution reads the same measurement. Monitoring and modeling are read-only; tuning and repair are separate steps you turn on.</p>
+    </div>
+    {{sol_grid}}
+    <p class="mt-28"><a class="arrow-link" href="/solutions/">Explore all solutions</a></p>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="home-ind">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Where it applies</p>
+      <h2 id="home-ind">Wherever chips run for years and a surprise is expensive.</h2>
+      <p>Each industry reads the same measurement differently: as watts, as uptime, as a maintenance schedule, as evidence.</p>
+    </div>
+    {{ind_grid}}
+    <p class="mt-28"><a class="arrow-link" href="/industries/">Explore industries</a></p>
+  </div>
+</section>
+
+<section class="vision" aria-labelledby="home-vision">
+  <div class="wrap">
+    <div class="stack">
+      <p class="kicker">Where this goes</p>
+      <h2 id="home-vision">FPGAs are where we start.</h2>
+      <p class="lead">A chip that reports its own condition is useful wherever silicon has to be trusted. FPGAs are programmable, so the health layer can be added to chips already in service, with no new silicon. That makes them the first step, not the last.</p>
+    </div>
+    <div class="path">
+      <div><span class="n">1</span><div><h3>Today: FPGA fleets, read-only</h3><p>Per-element measurement on AMD and Altera parts already in production, with evaluations that start on a sample of your cards.</p></div></div>
+      <div><span class="n">2</span><div><h3>Next: the full loop, across industries</h3><p>Monitoring, modeling, tuning and repair on the same measurement, in data centers, at the edge and in the field, with one health metric across vendors and generations.</p></div></div>
+      <div><span class="n">3</span><div><h3>The world we're building</h3><p>Every team sees the true limits of every chip it runs. Hardware you can see is hardware you can trust, and hardware you can trust does more with less.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="home-team" data-people="allowed">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Who we are</p>
+      <h2 id="home-team">Built by the people who did the research.</h2>
+      <p>Fluid Silicon grew out of reconfigurable-computing research at the University of Pennsylvania, which awarded the work its President's Sustainability Prize in 2026.</p>
+    </div>
+    {{team}}
+    <div class="team-note">
+      <a class="arrow-link" href="/company/">About the company</a>
+      <a class="arrow-link" href="/careers/">We're hiring in Philadelphia</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--raised" aria-labelledby="home-news">
+  <div class="wrap">
+    <div class="eyebrow-row"><h2 id="home-news">What's new</h2><a class="arrow-link" href="/company/news/">News and press</a></div>
+    {{news_cards:3}}
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="home-res">
+  <div class="wrap">
+    <div class="eyebrow-row"><h2 id="home-res">Go deeper</h2><a class="arrow-link" href="/blog/">Blog and resources</a></div>
+    {{res_grid:brief,margin,readonly}}
+  </div>
+</section>
+
+{{cta}}

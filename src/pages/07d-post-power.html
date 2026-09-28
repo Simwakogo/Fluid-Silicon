@@ -1,0 +1,59 @@
+<!--meta
+{"path": "/blog/what-a-point-of-power-is-worth/", "nav": "resources", "doc_title": "What a point of card power is worth | Fluid Silicon", "description": "A worked example for a fleet of 10,000 FPGA cards: how card power, hours, PUE and a measured reduction turn into megawatt-hours a year."}
+-->
+<section class="page-hero post-hero" aria-labelledby="post-h1">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/blog/">Blog</a><span aria-hidden="true">/</span><span>What a point of card power is worth</span></nav>
+    <p class="kicker">Blog</p>
+    <h1 id="post-h1">What a point of card power is worth.</h1>
+    <p class="lead">Adaptive voltage scaling changes one number on each card. This is the arithmetic that turns that number into a fleet figure your finance team can use.</p>
+    <p class="post-meta"><span>September 2026</span><span>Fluid Silicon</span><span>3 minute read</span></p>
+  </div>
+</section>
+
+<section class="sec" aria-label="Article">
+  <div class="wrap post-layout">
+    <article class="post-body">
+      <h2>The example fleet</h2>
+      <p>Take 10,000 cards averaging 75 W each, running all year, in a facility with a power usage effectiveness (PUE) of 1.2. The energy a card draws is paid for again in cooling and distribution, which is what PUE captures.</p>
+      <p>10,000 cards × 75 W = 750 kW of card power. Over 8,760 hours that is 6,570 MWh a year on the cards themselves, and 7,884 MWh at the wall once PUE is applied.</p>
+      <div class="table-wrap">
+        <table class="data data--fit">
+          <caption>Example only. 10,000 cards × 75 W × 8,760 hours × PUE 1.2 = 7,884 MWh per year at the wall.</caption>
+          <thead><tr><th scope="col">Reduction in card power</th><th scope="col">Fleet energy saved per year</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">1%</th><td class="mono">79 MWh</td></tr>
+            <tr><th scope="row">5%</th><td class="mono">394 MWh</td></tr>
+            <tr><th scope="row">10%</th><td class="mono">788 MWh</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Where the reduction comes from</h2>
+      <p>Vendor timing models cover the worst chip at the hottest corner at the end of its life, so every card runs at a voltage chosen for that chip. Measured per chip, the margin needed shrinks to measurement error plus drift until the next measurement, under 20 ps per link. The voltage that margin no longer needs is the reduction.</p>
+      <p>How large it is depends on the margin your chips carry today, which is why an evaluation starts by measuring a sample of your own cards before anything is recommended. On production shells at realistic utilization we measure 30–54% of timing margin carried for the worst-case corner.*</p>
+
+      <h2>Substitute your own numbers</h2>
+      <ul class="bullets">
+        <li><strong>Card count and average power</strong> from your inventory and your power telemetry.</li>
+        <li><strong>Hours</strong>: 8,760 for cards that never sleep; fewer if they do.</li>
+        <li><strong>PUE</strong> from your facility. Anything above 1.0 multiplies what you save on the card.</li>
+        <li><strong>The reduction</strong> from an evaluation on your cards, not from this page.</li>
+      </ul>
+      <div class="callout">
+        <h3>Safety is part of the arithmetic</h3>
+        <p>A change that risks timing is not a saving. Every change is scheduled, handshake-gated and measured again within a second, and the aging model pulls the operating point back before a chip drifts toward the threshold. <a href="/solutions/power-performance/">Power and performance</a> explains the guardrails.</p>
+      </div>
+      <p class="footnote">*Fluid Silicon measurements. They vary with variation pattern, workload, vendor and device age.</p>
+    </article>
+    <aside class="post-side" aria-label="Related">
+      <h2>Related solutions</h2>
+      <ul><li><a href="/solutions/power-performance/">Power &amp; Performance</a></li><li><a href="/industries/#data-center-cloud">Data Center &amp; Cloud</a></li><li><a href="/industries/#ai-hpc">AI / HPC</a></li></ul>
+      <h2>Keep reading</h2>
+      <ul><li><a href="/blog/the-fpga-margin-problem/">The FPGA margin problem</a></li><li><a href="/blog/read-only-first/">Read-only first: how an evaluation runs</a></li></ul>
+      <p><a class="btn btn--ghost btn--small" href="/assets/docs/fluid-silicon-technical-brief.pdf">Technical brief (PDF)</a></p>
+    </aside>
+  </div>
+</section>
+
+{{cta}}

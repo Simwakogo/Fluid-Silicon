@@ -1,0 +1,101 @@
+<!--meta
+{"path": "/technology/security/", "nav": "technology", "doc_title": "Security and integration | Fluid Silicon", "description": "How the Fluid Silicon health layer fits production FPGA systems: design untouched, no JTAG exposure, zero downtime, under 1% of LUTs and handshake-gated actions."}
+-->
+<section class="page-hero" aria-labelledby="sec-h1">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/technology/">Technology</a><span aria-hidden="true">/</span><span>Security and integration</span></nav>
+    <h1 id="sec-h1">Security and integration.</h1>
+    <p class="lead">The health layer sits beside designs already in production. It is small, it stays out of your logic, it runs on your site, and it changes nothing without your approval.</p>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="sec-flow">
+  <div class="wrap split">
+    <div class="stack">
+      <p class="kicker">Where it sits</p>
+      <h2 id="sec-flow">Beside your design, not inside it.</h2>
+      <p class="lead">A small, fixed region of the device, next to your design. Your logic, routing and I/O stay as built.</p>
+      <p class="muted">Telemetry flows out to your fleet tools, inside your network. Actions flow back only after your approval, through a handshake.</p>
+    </div>
+    <div>{{illus:card-security}}</div>
+  </div>
+</section>
+
+<section class="sec sec--raised" aria-labelledby="sec-moves">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">What moves</p>
+      <h2 id="sec-moves">Two directions, two rules.</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="feature">
+        {{icon:chip}}
+        <h3>On the card</h3>
+        <p>Measurements are taken at speed while the design computes. Nothing is written into your logic; no debug port is opened.</p>
+      </div>
+      <div class="feature">
+        {{icon:rack}}
+        <h3>Out to your fleet</h3>
+        <p>Health data leaves the card in one vendor-neutral schema and lands in your existing monitoring. The platform is deployed on your site, so nothing leaves your network. Telemetry, not a control channel.</p>
+      </div>
+      <div class="feature">
+        {{icon:lock}}
+        <h3>Back only with a handshake</h3>
+        <p>Voltage, frequency and repair actions are opt-in, scheduled in your windows, and applied only after an explicit handshake.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="sec-guar">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">The contract</p>
+      <h2 id="sec-guar">Six guarantees.</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="feature">{{icon:shield}}<h3>Your design stays intact</h3><p>Logic, routing and I/O stay as built. The health layer occupies a small region reserved beside them. Repair, if you enable it, moves only a path whose element is degrading.</p></div>
+      <div class="feature">{{icon:lock}}<h3>No JTAG exposure</h3><p>No debug port has to be opened on production systems for monitoring to work.</p></div>
+      <div class="feature">{{icon:clock}}<h3>Zero downtime</h3><p>The design keeps computing for the whole measurement. A full sweep takes about a second.</p></div>
+      <div class="feature">{{icon:layers}}<h3>Small, on any design</h3><p>Under 1% of LUTs and 5% of flip-flops on a production shell, under 2% added delay.</p></div>
+      <div class="feature">{{icon:calendar}}<h3>Deterministic, scheduled changes</h3><p>Opt-in, scheduled, handshake-gated, and coordinated per device, per server or fleet-wide.</p></div>
+      <div class="feature">{{icon:check}}<h3>On your site</h3><p>The platform runs on your premises. The same health metric, telemetry schema, thresholds and aging model on AMD and Altera parts, all inside your network.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--raised" aria-labelledby="sec-controls">
+  <div class="wrap split">
+    <div class="stack">
+      <p class="kicker">Control</p>
+      <h2 id="sec-controls">Read-only is the default.</h2>
+      <p class="lead">Each further step is one you turn on.</p>
+    </div>
+    <ul class="checks">
+      <li><div><strong>Read-only by default.</strong> Monitoring and aging models never change an operating point.</div></li>
+      <li><div><strong>Opt-in actions.</strong> Voltage scaling, frequency scaling and repair are enabled separately, by policy.</div></li>
+      <li><div><strong>Your windows.</strong> Changes run only in maintenance windows you schedule.</div></li>
+      <li><div><strong>Your thresholds.</strong> You set the alert and action thresholds for your fleet.</div></li>
+      <li><div><strong>A handshake on every action.</strong> Nothing is applied to a running card without an explicit handshake.</div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="sec-faq">
+  <div class="wrap split split--top">
+    <div class="stack">
+      <p class="kicker">FAQ</p>
+      <h2 id="sec-faq">Common questions.</h2>
+    </div>
+    <div class="faq">
+      <details><summary>Do we need to change our design?</summary><div class="a"><p>Your RTL is not changed. Integration needs a small region reserved beside your design, sized and placed with your team during evaluation.</p></div></details>
+      <details><summary>Does monitoring need JTAG access?</summary><div class="a"><p>No. No JTAG port needs to be exposed on production systems.</p></div></details>
+      <details><summary>Can we keep it read-only?</summary><div class="a"><p>Yes. Monitoring and modeling are read-only. Voltage scaling, frequency scaling and repair are separate steps that you choose to enable.</p></div></details>
+      <details><summary>Where does the telemetry go?</summary><div class="a"><p>Into your existing monitoring, in one vendor-neutral schema. The platform is deployed on your site; nothing leaves your network.</p></div></details>
+      <details><summary>How does the sensing work?</summary><div class="a"><p>We share the sensor architecture, deployment mechanics and calibration methods with evaluation partners under NDA. <a href="/demo/">Ask for a technical session.</a></p></div></details>
+      <details><summary>Which devices are supported?</summary><div class="a"><p>AMD 7-series, UltraScale and UltraScale+ are supported today, with select Altera Agilex 7 devices. See <a href="/technology/devices/">device support</a> for the full list and status.</p></div></details>
+    </div>
+  </div>
+</section>
+
+{{cta}}

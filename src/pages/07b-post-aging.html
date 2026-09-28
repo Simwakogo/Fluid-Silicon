@@ -1,0 +1,53 @@
+<!--meta
+{"path": "/blog/aging-is-measurable/", "nav": "resources", "doc_title": "Aging is measurable, in the field. | Fluid Silicon", "description": "Transistor aging slows FPGA logic over time, faster at high temperature and voltage. A per-card aging model turns that into a time-to-threshold you can plan around."}
+-->
+<section class="page-hero post-hero" aria-labelledby="post-h1">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/blog/">Blog</a><span aria-hidden="true">/</span><span>Aging is measurable</span></nav>
+    <p class="kicker">Blog</p>
+    <h1 id="post-h1">Aging is measurable, in the field.</h1>
+    <p class="lead">Transistor aging slows logic over time, and faster at high temperature and voltage. Without measurement on each device, a card can drift out of specification with no warning.</p>
+    <p class="post-meta"><span>September 2026</span><span>Fluid Silicon</span><span>4 minute read</span></p>
+  </div>
+</section>
+
+<section class="sec" aria-label="Article">
+  <div class="wrap post-layout">
+    <article class="post-body">
+      <h2>What aging does to timing</h2>
+      <p>Mechanisms such as negative bias temperature instability (NBTI) slow transistors as they are used. A path that met timing with room to spare on the day a card was installed meets it with less room every year. The rate depends on temperature, voltage and how the logic is used, so two identical boards in different racks age at very different rates.</p>
+      <p>Vendor timing models cover this by assuming the end-of-life corner from day one. That protects the worst board and wastes margin on every other one, and it still says nothing about which board is which.</p>
+
+      <h2>One board, three temperatures</h2>
+      <p>The chart below is an illustrative model for one card. The measured points cover the first three years; the fitted curve is projected forward to the alert threshold, the point at which the margin set aside for aging is used up.</p>
+      {{aging:aging-post}}
+      <p>At 70 °C the projection crosses the threshold at about 3.8 years. At 55 °C it takes about 7.6 years. At 45 °C the same board is still inside its margin beyond ten years. The difference between a cool rack and a hot enclosure is the difference between a scheduled replacement and a surprise.</p>
+
+      <h2>A model per card, not per fleet</h2>
+      <p>Fluid Silicon measures every logic element about once a second for the life of the card. Each element's history is fitted to the card's own temperature record, and the fit is projected to the threshold you set. The output is a date: the predicted time-to-threshold.</p>
+      <ul class="bullets">
+        <li>Outliers, cards aging faster than their neighbours, are flagged early.</li>
+        <li>The forecast feeds replacement and capacity planning, so budgets follow measured health.</li>
+        <li>Where lowering the operating point buys years, the model shows it, and the change waits for your approval.</li>
+        <li>Every new sweep refines the fit.</li>
+      </ul>
+
+      <h2>Why fleets don't measure it today</h2>
+      <p>Measuring aging on a production card has meant downtime, test access or design changes. The health layer avoids all three: it runs beside your design with no downtime, needs no JTAG exposure and changes nothing in your logic. It occupies under 1% of LUTs on a production shell. <a href="/technology/security/">How it fits</a>.</p>
+      <div class="callout">
+        <h3>Where this shows up</h3>
+        <p>Aging models are part of <a href="/solutions/reliability-availability-serviceability/">Reliability, Availability, Serviceability</a>, <a href="/solutions/failure-prediction-diagnostics/">Failure Prediction &amp; Diagnostics</a> and <a href="/solutions/lifecycle-second-life/">Lifecycle &amp; Second Life</a>.</p>
+      </div>
+      <p class="footnote">The chart is an illustrative model for one card, not a measurement of a specific product.</p>
+    </article>
+    <aside class="post-side" aria-label="Related">
+      <h2>Related solutions</h2>
+      <ul><li><a href="/solutions/reliability-availability-serviceability/">Reliability, Availability, Serviceability</a></li><li><a href="/solutions/lifecycle-second-life/">Lifecycle &amp; Second Life</a></li></ul>
+      <h2>Keep reading</h2>
+      <ul><li><a href="/blog/the-fpga-margin-problem/">The FPGA margin problem</a></li><li><a href="/blog/one-health-metric-many-generations/">Five board generations, one health metric</a></li></ul>
+      <p><a class="btn btn--ghost btn--small" href="/assets/docs/fluid-silicon-technical-brief.pdf">Technical brief (PDF)</a></p>
+    </aside>
+  </div>
+</section>
+
+{{cta}}

@@ -1,0 +1,54 @@
+<!--meta
+{"path": "/blog/one-health-metric-many-generations/", "nav": "resources", "doc_title": "Five board generations, one health metric | Fluid Silicon", "description": "What mixed-vendor, multi-generation FPGA fleets need from telemetry: one health metric that means the same thing on every part, and one set of rules for change."}
+-->
+<section class="page-hero post-hero" aria-labelledby="post-h1">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/blog/">Blog</a><span aria-hidden="true">/</span><span>Five board generations, one health metric</span></nav>
+    <p class="kicker">Blog</p>
+    <h1 id="post-h1">Five board generations, one health metric.</h1>
+    <p class="lead">Large operators run FPGAs from more than one vendor, across process nodes and board generations, for longer than the parts were designed for. A fleet view is only possible if one number means one thing on all of them.</p>
+    <p class="post-meta"><span>September 2026</span><span>Fluid Silicon</span><span>4 minute read</span></p>
+  </div>
+</section>
+
+<section class="sec" aria-label="Article">
+  <div class="wrap post-layout">
+    <article class="post-body">
+      <h2>The fleet is already mixed</h2>
+      <figure class="quote">
+        <blockquote>“Microsoft therefore maintains many FPGA parts and families in production simultaneously, supporting multiple board generations for a decade or longer. Currently, Azure has 5 generations of FPGA boards actively in deployment.”</blockquote>
+        <figcaption>{{cite:fpga26}}</figcaption>
+      </figure>
+      <p>Five generations means five timing models, five sets of vendor tools and five ideas of what "healthy" means. Add a second vendor and the number doubles. A dashboard built on any one of those models cannot say whether a 28 nm card in one rack is in better shape than a 16 nm card in the next.</p>
+
+      <h2>What a fleet metric has to be</h2>
+      <ul class="bullets">
+        <li><strong>Measured, not modeled.</strong> The number describes this card, today, not the family's worst case.</li>
+        <li><strong>Comparable.</strong> Measured slack as a share of the clock period means the same thing on every part, so one threshold applies everywhere.</li>
+        <li><strong>Per element.</strong> A card-level average hides the one weak element that will fail first.</li>
+        <li><strong>Continuous.</strong> A number from acceptance day is a history lesson. About once a second is a health signal.</li>
+      </ul>
+      {{device_summary:devsum-post}}
+
+      <h2>Two layers, so the view never changes</h2>
+      <p>What your team sees and acts on is the same on every vendor: the health metric, the telemetry schema, the alert thresholds and the aging model. What differs between vendors, integration with each toolchain and calibration for each family and node, is handled below that line by Fluid Silicon. When a new family is qualified, it appears in the same dashboard with the same number.</p>
+
+      <h2>One set of rules for change</h2>
+      <p>A fleet metric is only useful if the actions it drives are as uniform as the data. Read-only is the default. Voltage scaling, frequency scaling and repair are enabled separately, by policy. Changes run only in maintenance windows you schedule, can be coordinated per device, per server or across the fleet, and every one of them is handshake-gated and measured again within a second.</p>
+      <div class="callout">
+        <h3>Where this shows up</h3>
+        <p><a href="/solutions/fleet-operations/">Fleet Deployment &amp; Operations</a> covers the telemetry, the change control and the dashboards. <a href="/technology/devices/">Device support</a> lists the families and their status.</p>
+      </div>
+      <p class="footnote">Cited for context. Fluid Silicon is not affiliated with Microsoft.</p>
+    </article>
+    <aside class="post-side" aria-label="Related">
+      <h2>Related solutions</h2>
+      <ul><li><a href="/solutions/fleet-operations/">Fleet Deployment &amp; Operations</a></li><li><a href="/industries/#data-center-cloud">Data Center &amp; Cloud</a></li></ul>
+      <h2>Keep reading</h2>
+      <ul><li><a href="/blog/the-fpga-margin-problem/">The FPGA margin problem</a></li><li><a href="/blog/read-only-first/">Read-only first: how an evaluation runs</a></li></ul>
+      <p><a class="btn btn--ghost btn--small" href="/assets/docs/fluid-silicon-technical-brief.pdf">Technical brief (PDF)</a></p>
+    </aside>
+  </div>
+</section>
+
+{{cta}}

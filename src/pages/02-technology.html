@@ -1,0 +1,130 @@
+<!--meta
+{"path": "/technology/", "nav": "technology", "doc_title": "Technology | Fluid Silicon", "description": "How the Fluid Silicon health layer works: per-element timing measured on the chip at speed, integration beside your design, characterization before and after service, and in-field monitoring, modeling, tuning and repair."}
+-->
+<section class="hero on-dark hero--inner" aria-labelledby="tech-h1">
+  <div class="wrap">
+    <div class="hero-copy">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Technology</span></nav>
+      <p class="kicker">Technology</p>
+      <h1 id="tech-h1">A chip that measures its own logic.</h1>
+      <p class="lead">A small health layer beside your design measures the timing of every logic element, at operating speed, in production. One measurement, and everything else follows from it.</p>
+      <div class="btn-row"><a class="btn btn--primary" href="/demo/">Request a demo {{arrow}}</a><a class="btn btn--ghost" href="/assets/docs/fluid-silicon-technical-brief.pdf">Technical brief (PDF)</a></div>
+    </div>
+    <div class="hero-visual">{{fabric:fabric-tech}}</div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="tech-pillars">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Built for FPGAs</p>
+      <h2 id="tech-pillars">Four parts, one health layer.</h2>
+      <p>Today a chip is characterized once, at the factory, and run for life against the worst chip that could have been made. Monitoring built into an ASIC has to be there at tape-out. FPGAs are programmable, so a health layer can be added beside a design already in your racks: no new silicon, no RTL changes, and a measurement that continues for the life of the card.</p>
+    </div>
+    <div class="apps">
+      <a class="app" href="#monitoring">{{icon:monitor}}<h3>Timing Health Monitoring</h3><p>Per-element timing measured at speed, on the chip, while your design runs.</p><span class="go">Learn more</span></a>
+      <a class="app" href="#integration">{{icon:layers}}<h3>Integration &amp; Deployment</h3><p>A small reserved region beside your design, through the vendor's own flow, deployed on your site.</p><span class="go">Learn more</span></a>
+      <a class="app" href="#characterization">{{icon:check}}<h3>Characterization Applications</h3><p>Every card measured before service and on the way out.</p><span class="go">Learn more</span></a>
+      <a class="app" href="#in-field">{{icon:tune}}<h3>In-Field Applications</h3><p>Monitor, model, tune and, when needed, repair, for the life of every card.</p><span class="go">Learn more</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--raised" aria-labelledby="tech-mon" id="monitoring">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Timing Health Monitoring</p>
+      <h2 id="tech-mon">On-chip measurement, in production, for the life of the card.</h2>
+      <p>The health layer measures timing slack on individual logic elements: LUTs, carry blocks and the links between them. A full sweep takes about a second; each link is resolved to under 20 ps.</p>
+    </div>
+    <div class="split split--top">
+      <div class="stack">
+        <h3 class="fs-4">What it measures</h3>
+        <ul class="checks">
+          <li><div><strong>Per-element slack.</strong> Measured slack as a share of the clock period, per logic-element link, on every card.</div></li>
+          <li><div><strong>Variation.</strong> Random, systematic and spatial variation shown separately, so a weak region has an address.</div></li>
+          <li><div><strong>Aging.</strong> Each element tracked for the life of the card, fitted to its own temperature history.</div></li>
+          <li><div><strong>Operating point.</strong> Voltage and frequency alongside timing, so a change can be checked against its effect.</div></li>
+        </ul>
+        <div class="grid grid-4 mt-12">
+          <div class="feature">{{icon:chip}}<h4>LUTs</h4></div>
+          <div class="feature">{{icon:layers}}<h4>Carry blocks</h4></div>
+          <div class="feature">{{icon:variation}}<h4>Interconnect links</h4></div>
+          <div class="feature">{{icon:thermo}}<h4>Temperature history</h4></div>
+        </div>
+      </div>
+      <div>{{mock_light:card|One card: slack across every element, the weakest one and its history. Illustrative screen.}}</div>
+    </div>
+    <div class="split mt-48">
+      <div class="stack">
+        <h3 class="fs-4">Monitoring infrastructure</h3>
+        <p class="muted">Under 1% of LUTs and under 5% of flip-flops on a production shell, under 2% delay impact, no downtime, no JTAG exposure. The platform runs on your site.</p>
+        <p><a class="btn btn--ghost" href="/technology/security/">Security and integration</a></p>
+      </div>
+      <div>{{res_grid:margin}}</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="tech-int" id="integration">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Integration &amp; Deployment</p>
+      <h2 id="tech-int">Built for designs already in production.</h2>
+      <p>Integration asks one thing of your build: a small region reserved beside your design, sized and placed with your team during evaluation. Your RTL is not changed. Telemetry stays in your network.</p>
+    </div>
+    {{tech_tabs:integration}}
+    <div class="badges mt-28"><span>Works with your existing design</span><span>Vendor-neutral</span><span>Read-only first</span><span>No JTAG exposure</span><span>Deployed on your site</span></div>
+    <div class="mt-48">{{res_feature:brief}}</div>
+  </div>
+</section>
+
+<section class="sec sec--raised" aria-labelledby="tech-char" id="characterization">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Characterization Applications</p>
+      <h2 id="tech-char">Every card measured before service, and on the way out.</h2>
+      <p>The same measurement continues in production, so the margin you sign off is the margin you keep.</p>
+    </div>
+    {{tech_tabs:characterization}}
+    <div class="callout narrow mt-48">
+      <h3>The model behind the forecast</h3>
+      <p>Each card's aging curve is fitted to its measured history and temperature, then projected to the alert threshold you set. Every sweep refines the fit.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="tech-field" id="in-field">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">In-Field Applications</p>
+      <h2 id="tech-field">Monitor, model, tune and, when needed, repair.</h2>
+      <p>Monitoring feeds the aging model and the tuning; both feed back into monitoring, so every change is re-measured. Repair is the exception, not the routine: nothing in your design moves unless an element is degrading toward your threshold.</p>
+    </div>
+    {{tech_tabs:in-field}}
+    <div class="split mt-48">
+      <div class="stack">
+        <h3 class="fs-4">At the edge</h3>
+        <p class="muted">Satellites, aircraft, radar and remote ground stations cannot wait for a fleet server. The health layer measures on the platform, projects a time-to-threshold per board, and scales voltage within the margin each device has measured.</p>
+        <p><a class="arrow-link" href="/industries/#aerospace-defense">Aerospace and defense</a></p>
+      </div>
+      <div>{{mock_light:program|Program view for far-edge boards. Illustrative screen.}}</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--raised" aria-labelledby="tech-sol">
+  <div class="wrap">
+    <div class="sec-head"><p class="kicker">Solutions</p><h2 id="tech-sol">Solutions for the entire lifecycle.</h2></div>
+    {{sol_icons}}
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="tech-faq">
+  <div class="wrap split split--top">
+    <div class="stack"><p class="kicker">FAQ</p><h2 id="tech-faq">Common questions.</h2><p class="muted">Sensor architecture, deployment mechanics and calibration methods are shared with evaluation partners under NDA.</p></div>
+    {{tech_faq}}
+  </div>
+</section>
+
+{{cta}}
