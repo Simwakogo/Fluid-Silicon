@@ -6,8 +6,8 @@
    calendarUrl    Optional booking link (for example a Cal.com or Calendly page), offered after a demo request.
    replyDays      Business days you commit to for replying to demo requests. */
 window.FS_CONFIG = {
-  demoEndpoint: "",
-  applyEndpoint: "https://script.google.com/macros/s/AKfycbzIaL01HeeeGv7JWF3CfKJfOoJfXRxQr4kfGO6wJXI8le7QvSfBfSuRv7JS9Gat8kbGuw/exec",
+  demoEndpoint: "https://script.google.com/macros/s/AKfycbw_SsF_xRy6cN6pB3E6vckk-hrAQ5wve5dwBSBFtDwSdAN-RpVXnf2PicufTfXxU_i63g/exec",
+  applyEndpoint: "https://script.google.com/macros/s/AKfycbw_SsF_xRy6cN6pB3E6vckk-hrAQ5wve5dwBSBFtDwSdAN-RpVXnf2PicufTfXxU_i63g/exec",
   calendarUrl: "",
   replyDays: 2,
   contactEmail: "info@fluidsilicon.com",
