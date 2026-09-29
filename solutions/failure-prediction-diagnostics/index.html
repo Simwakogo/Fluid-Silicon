@@ -30,7 +30,7 @@
 <link rel="stylesheet" href="/assets/css/site.css">
 <script src="/assets/js/config.js" defer></script>
 <script src="/assets/js/site.js" defer></script>
-
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What kinds of failure does this predict?", "acceptedAnswer": {"@type": "Answer", "text": "Timing failures from variation and wear-out: logic that has slowed past its margin. It does not predict mechanical, power-supply or radiation events; it complements the measures you have for those."}}, {"@type": "Question", "name": "How is an error attributed?", "acceptedAnswer": {"@type": "Answer", "text": "Every logic element has a measured slack history, so an error is checked against the elements that were weakest at the time. The result is evidence, not inference."}}, {"@type": "Question", "name": "Can it tell aging from a bad batch?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Aging shows as a trend in a card's own history; a bad batch shows as an outlier at incoming characterization, before the card ages at all."}}, {"@type": "Question", "name": "Does monitoring affect our design's timing?", "acceptedAnswer": {"@type": "Answer", "text": "The health layer adds under 2% delay and occupies under 1% of LUTs on a production shell. It does not interfere with the design's computation."}}, {"@type": "Question", "name": "How often is each card measured?", "acceptedAnswer": {"@type": "Answer", "text": "A full sweep of every logic element takes about a second and runs while the design computes. The interval between sweeps is yours to set."}}, {"@type": "Question", "name": "Which devices are supported?", "acceptedAnswer": {"@type": "Answer", "text": "AMD 7-series, UltraScale and UltraScale+ today, with select Altera Agilex 7 devices; more families in development. See device support."}}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -179,7 +179,7 @@
     </div>
     <div class="foot-bottom">
       <p>© 2026 Fluid Silicon. AMD, Altera and their product names are trademarks of their respective owners. Fluid Silicon is not affiliated with or endorsed by them.</p>
-      <div class="row"><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a><span class="muted">Philadelphia, Pennsylvania</span><a class="social social--li social--sm" href="https://www.linkedin.com/company/fluidsilicon/" rel="noopener" aria-label="Fluid Silicon on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a></div>
+      <div class="row"><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a><span class="muted">Philadelphia, PA</span><a class="social social--li social--sm" href="https://www.linkedin.com/company/fluidsilicon/" rel="noopener" aria-label="Fluid Silicon on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a></div>
     </div>
   </div>
 </footer>

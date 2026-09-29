@@ -17,7 +17,8 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(ROOT, "src")
 DIST = os.path.join(ROOT, "dist")
 SITE_URL = "https://fluidsilicon.com"
-BUILD_DATE = "2026-09-28"          # shown as "Updated" on careers and device support
+BUILD_DATE = "2026-09-29"          # shown as "Updated" on careers and device support
+POST_DATE = "2026-09-24"           # publication date of the first five blog posts
 esc = html.escape
 
 # ------------------------------------------------------------------ facts used on several pages (one source of truth)
@@ -787,7 +788,7 @@ def presskit():
 
 
 def location_card():
-    return ('<div class="location"><h3>Philadelphia, Pennsylvania</h3><p>Fluid Silicon is based in Philadelphia, close to the University of Pennsylvania, where the research behind the platform began.</p>'
+    return ('<div class="location"><h3>Philadelphia, PA</h3><p>Fluid Silicon is based in Philadelphia, close to the University of Pennsylvania, where the research behind the platform began.</p>'
             f'<p><a href="mailto:{FACTS["contact"]}">{FACTS["contact"]}</a></p></div>')
 
 
@@ -1008,7 +1009,7 @@ def footer_html():
     </div>
     <div class="foot-bottom">
       <p>© 2026 {LEGAL_ENTITY}. AMD, Altera and their product names are trademarks of their respective owners. Fluid Silicon is not affiliated with or endorsed by them.</p>
-      <div class="row"><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a><span class="muted">Philadelphia, Pennsylvania</span><a class="social social--li social--sm" href="{FACTS["linkedin"]}" rel="noopener" aria-label="Fluid Silicon on LinkedIn">{LINKEDIN}</a></div>
+      <div class="row"><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a><span class="muted">Philadelphia, PA</span><a class="social social--li social--sm" href="{FACTS["linkedin"]}" rel="noopener" aria-label="Fluid Silicon on LinkedIn">{LINKEDIN}</a></div>
     </div>
   </div>
 </footer>"""
@@ -1017,10 +1018,31 @@ def footer_html():
 ORG_LD = {
     "@context": "https://schema.org", "@type": "Organization", "name": "Fluid Silicon", "url": SITE_URL + "/",
     "logo": SITE_URL + "/assets/img/icon-512.png", "email": FACTS["contact"],
-    "description": "Silicon that reports its own health: per-element timing measurement on FPGAs, aging models, adaptive voltage and frequency scaling, and repair.",
+    "description": "Fluid Silicon builds FPGA health monitoring and timing measurement software: per-element timing measured on the chip while it runs, aging models, adaptive voltage and frequency scaling, and repair, for AMD and Altera FPGAs.",
     "address": {"@type": "PostalAddress", "addressLocality": "Philadelphia", "addressRegion": "PA", "addressCountry": "US"},
-    "sameAs": [FACTS["linkedin"]],
+    "foundingLocation": {"@type": "Place", "name": "Philadelphia, PA"},
+    "knowsAbout": ["FPGA health monitoring", "FPGA timing measurement", "FPGA aging", "adaptive voltage scaling", "reconfigurable computing", "process variation"],
+    "sameAs": [FACTS["linkedin"], CITES["penn"][1]],
 }
+WEBSITE_LD = {"@context": "https://schema.org", "@type": "WebSite", "name": "Fluid Silicon", "url": SITE_URL + "/"}
+
+
+def page_ld(meta, body):
+    """Structured data derived from the page itself: FAQPage from any FAQ block, BlogPosting for posts."""
+    out = []
+    qa = re.findall(r"<details[^>]*><summary>(.*?)</summary><div class=\"a\"><p>(.*?)</p></div></details>", body, re.S)
+    if qa:
+        strip = lambda t: html.unescape(re.sub(r"<[^>]+>", "", t)).strip()
+        out.append({"@context": "https://schema.org", "@type": "FAQPage",
+                    "mainEntity": [{"@type": "Question", "name": strip(q), "acceptedAnswer": {"@type": "Answer", "text": strip(a)}} for q, a in qa]})
+    if meta["path"].startswith("/blog/") and meta["path"] != "/blog/":
+        h1 = re.search(r"<h1[^>]*>(.*?)</h1>", body, re.S)
+        out.append({"@context": "https://schema.org", "@type": "BlogPosting", "headline": html.unescape(re.sub(r"<[^>]+>", "", h1.group(1))).strip() if h1 else meta["doc_title"],
+                    "description": meta["description"], "datePublished": POST_DATE, "dateModified": BUILD_DATE,
+                    "author": {"@type": "Organization", "name": "Fluid Silicon", "url": SITE_URL + "/"},
+                    "publisher": {"@type": "Organization", "name": "Fluid Silicon", "logo": {"@type": "ImageObject", "url": SITE_URL + "/assets/img/icon-512.png"}},
+                    "image": SITE_URL + "/assets/img/og-image.png", "mainEntityOfPage": SITE_URL + meta["path"]})
+    return out
 
 
 # GitHub Pages can't send security headers, so the policy rides in a meta tag. The one inline script is allowed by its hash.
@@ -1035,8 +1057,9 @@ def head_html(meta):
     canon = SITE_URL + ("/404.html" if path == "/404.html" else path)
     title = meta["doc_title"]
     desc = meta["description"]
-    lds = [ORG_LD] if path == "/" else []
+    lds = [ORG_LD, WEBSITE_LD] if path == "/" else []
     lds += meta.get("ld", [])
+    lds += meta.get("auto_ld", [])
     ld = "".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in lds)
     robots = '<meta name="robots" content="noindex">' if meta.get("noindex") else ""
     return f'''<meta charset="utf-8">
@@ -1108,6 +1131,8 @@ def load_pages():
         meta, body = solution_page(sdef)
         meta["route"] = ROUTES[meta["path"]]
         pages.append((meta, label_scrollers(body)))
+    for meta, body in pages:
+        meta["auto_ld"] = page_ld(meta, body)
     order = list(ROUTES)
     pages.sort(key=lambda mb: order.index(mb[0]["path"]))
     return pages

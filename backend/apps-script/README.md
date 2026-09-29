@@ -18,6 +18,10 @@
 
 Phone is optional now, and the visa-type and visa-expiry fields are gone: the form asks only the two standard work-authorization questions. So that a script expecting the old fields keeps accepting applications, the site sends `phone: "Not provided"` when it's left blank, and `visaType` / `visaExpiration` as `"Not asked"` when someone needs sponsorship. The new script stores these values as they arrive.
 
+## Three separate spreadsheets
+
+By default all three forms write to tabs of the spreadsheet the script is bound to. To keep them in separate files, put each file's ID in `CONFIG.SHEET_IDS` (the ID is the long string in the sheet's URL between `/d/` and `/edit`). For applications, use your existing applications spreadsheet: the script adds a tab named "Applications" with the full set of columns (location, start date, on-site, school, links and so on) and writes new applications there, leaving your existing tab untouched. Each form notifies its own address (`NOTIFY_DEMO` for demo requests and contact messages, `NOTIFY_APPLY` for applications).
+
 ## Deploy
 
 1. Create a Google Sheet in the Workspace account that should own submissions.

@@ -6,14 +6,14 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-qOhFsq0QMV2REqNwk5hGH5bZE9SkX6gt6yeyKdYPv+U='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; manifest-src 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script>document.documentElement.classList.add("js")</script>
-<title>Security and integration | Fluid Silicon</title>
+<title>Security and integration: FPGA health layer on your site | Fluid Silicon</title>
 <meta name="description" content="How the Fluid Silicon health layer fits production FPGA systems: design untouched, no JTAG exposure, zero downtime, under 1% of LUTs and handshake-gated actions.">
 <link rel="canonical" href="https://fluidsilicon.com/technology/security/">
 
 <meta name="theme-color" content="#ffffff">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Fluid Silicon">
-<meta property="og:title" content="Security and integration | Fluid Silicon">
+<meta property="og:title" content="Security and integration: FPGA health layer on your site | Fluid Silicon">
 <meta property="og:description" content="How the Fluid Silicon health layer fits production FPGA systems: design untouched, no JTAG exposure, zero downtime, under 1% of LUTs and handshake-gated actions.">
 <meta property="og:url" content="https://fluidsilicon.com/technology/security/">
 <meta property="og:image" content="https://fluidsilicon.com/assets/img/og-image.png">
@@ -30,7 +30,7 @@
 <link rel="stylesheet" href="/assets/css/site.css">
 <script src="/assets/js/config.js" defer></script>
 <script src="/assets/js/site.js" defer></script>
-
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do we need to change our design?", "acceptedAnswer": {"@type": "Answer", "text": "Your RTL is not changed. Integration needs a small region reserved beside your design, sized and placed with your team during evaluation."}}, {"@type": "Question", "name": "Does monitoring need JTAG access?", "acceptedAnswer": {"@type": "Answer", "text": "No. No JTAG port needs to be exposed on production systems."}}, {"@type": "Question", "name": "Can we keep it read-only?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Monitoring and modeling are read-only. Voltage scaling, frequency scaling and repair are separate steps that you choose to enable."}}, {"@type": "Question", "name": "Where does the telemetry go?", "acceptedAnswer": {"@type": "Answer", "text": "Into your existing monitoring, in one vendor-neutral schema. The platform is deployed on your site; nothing leaves your network."}}, {"@type": "Question", "name": "How does the sensing work?", "acceptedAnswer": {"@type": "Answer", "text": "We share the sensor architecture, deployment mechanics and calibration methods with evaluation partners under NDA. Ask for a technical session."}}, {"@type": "Question", "name": "Which devices are supported?", "acceptedAnswer": {"@type": "Answer", "text": "AMD 7-series, UltraScale and UltraScale+ are supported today, with select Altera Agilex 7 devices. See device support for the full list and status."}}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -226,7 +226,7 @@
     </div>
     <div class="foot-bottom">
       <p>© 2026 Fluid Silicon. AMD, Altera and their product names are trademarks of their respective owners. Fluid Silicon is not affiliated with or endorsed by them.</p>
-      <div class="row"><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a><span class="muted">Philadelphia, Pennsylvania</span><a class="social social--li social--sm" href="https://www.linkedin.com/company/fluidsilicon/" rel="noopener" aria-label="Fluid Silicon on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a></div>
+      <div class="row"><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a><span class="muted">Philadelphia, PA</span><a class="social social--li social--sm" href="https://www.linkedin.com/company/fluidsilicon/" rel="noopener" aria-label="Fluid Silicon on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a></div>
     </div>
   </div>
 </footer>

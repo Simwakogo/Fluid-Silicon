@@ -415,9 +415,10 @@
           honeypot: d.website || "", elapsedMs: Date.now() - at0,
           fileName: file.name, mimeType: file.type, fileData: String(reader.result).split(",")[1]
         };
-        post(CFG.applyEndpoint, payload).then(function () { showDone(apply, "apply-done"); }).catch(function () {
+        post(CFG.applyEndpoint, payload).then(function () { showDone(apply, "apply-done"); }).catch(function (err) {
           btn.disabled = false; btn.textContent = "Submit application";
-          status(apply, "We couldn't upload that just now. Please try again, or email your résumé to <strong>" + (CFG.careersEmail || "careers@fluidsilicon.com") + "</strong>.", true);
+          var why = err && err.message && !/fetch|network|JSON/i.test(err.message) ? err.message + " " : "";
+          status(apply, why + "We couldn't upload that just now. Please try again, or email your résumé to <strong>" + (CFG.careersEmail || "careers@fluidsilicon.com") + "</strong>.", true);
         });
       };
       reader.onerror = function () { btn.disabled = false; btn.textContent = "Submit application"; status(apply, "We couldn't read that file. Try saving it again as a PDF.", true); };

@@ -6,14 +6,14 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-qOhFsq0QMV2REqNwk5hGH5bZE9SkX6gt6yeyKdYPv+U='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; manifest-src 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script>document.documentElement.classList.add("js")</script>
-<title>Technology | Fluid Silicon</title>
+<title>How it works: on-chip FPGA timing measurement and aging models | Fluid Silicon</title>
 <meta name="description" content="How the Fluid Silicon health layer works: per-element timing measured on the chip at speed, integration beside your design, characterization before and after service, and in-field monitoring, modeling, tuning and repair.">
 <link rel="canonical" href="https://fluidsilicon.com/technology/">
 
 <meta name="theme-color" content="#ffffff">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Fluid Silicon">
-<meta property="og:title" content="Technology | Fluid Silicon">
+<meta property="og:title" content="How it works: on-chip FPGA timing measurement and aging models | Fluid Silicon">
 <meta property="og:description" content="How the Fluid Silicon health layer works: per-element timing measured on the chip at speed, integration beside your design, characterization before and after service, and in-field monitoring, modeling, tuning and repair.">
 <meta property="og:url" content="https://fluidsilicon.com/technology/">
 <meta property="og:image" content="https://fluidsilicon.com/assets/img/og-image.png">
@@ -30,7 +30,7 @@
 <link rel="stylesheet" href="/assets/css/site.css">
 <script src="/assets/js/config.js" defer></script>
 <script src="/assets/js/site.js" defer></script>
-
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What does the health layer measure?", "acceptedAnswer": {"@type": "Answer", "text": "Timing slack on individual logic elements, including LUTs, carry blocks and the links between them, at operating speed. A full sweep of every element takes about a second, with each link resolved to under 20 ps."}}, {"@type": "Question", "name": "Does it change our design?", "acceptedAnswer": {"@type": "Answer", "text": "Your RTL is not changed. The health layer occupies a small region reserved beside your design, sized and placed with your team during evaluation. Your logic, routing and I/O stay as built. Repair, if you enable it, moves only a path whose element is degrading; everything else stays put."}}, {"@type": "Question", "name": "What does it cost in resources?", "acceptedAnswer": {"@type": "Answer", "text": "Under 1% of LUTs and under 5% of flip-flops on a production shell, with under 2% delay impact."}}, {"@type": "Question", "name": "Which devices and toolchains?", "acceptedAnswer": {"@type": "Answer", "text": "AMD 7-series, UltraScale and UltraScale+ today, with select Altera Agilex 7 devices. Integration with each vendor's toolchain, including AMD Vivado and Altera Quartus, is handled by Fluid Silicon."}}, {"@type": "Question", "name": "Does it cover the whole lifecycle?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Characterization at incoming, continuous monitoring in production, and characterization again at exit. Tuning and repair are opt-in steps in between."}}, {"@type": "Question", "name": "How is it different from monitoring built into an ASIC?", "acceptedAnswer": {"@type": "Answer", "text": "Monitoring designed into an ASIC has to be there at tape-out. FPGAs are programmable, so the health layer is added beside a design already in your racks, with no new silicon and no RTL changes. FPGAs are where we start; the same approach extends to other reconfigurable and programmable silicon."}}, {"@type": "Question", "name": "Is it secure?", "acceptedAnswer": {"@type": "Answer", "text": "The platform runs on your site. No JTAG port has to be exposed, nothing is written into your design's logic, telemetry stays in your network in one schema you control, and every action is opt-in, scheduled and handshake-gated. See security and integration."}}, {"@type": "Question", "name": "How does the sensing work?", "acceptedAnswer": {"@type": "Answer", "text": "Sensor architecture, deployment mechanics and calibration methods are shared with evaluation partners under NDA. Ask for a technical session."}}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -255,7 +255,7 @@
     </div>
     <div class="foot-bottom">
       <p>© 2026 Fluid Silicon. AMD, Altera and their product names are trademarks of their respective owners. Fluid Silicon is not affiliated with or endorsed by them.</p>
-      <div class="row"><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a><span class="muted">Philadelphia, Pennsylvania</span><a class="social social--li social--sm" href="https://www.linkedin.com/company/fluidsilicon/" rel="noopener" aria-label="Fluid Silicon on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a></div>
+      <div class="row"><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a><span class="muted">Philadelphia, PA</span><a class="social social--li social--sm" href="https://www.linkedin.com/company/fluidsilicon/" rel="noopener" aria-label="Fluid Silicon on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a></div>
     </div>
   </div>
 </footer>

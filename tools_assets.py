@@ -319,7 +319,7 @@ def brief_html():
   <div class="note-b">Sensor architecture, deployment mechanics and calibration methods are shared with evaluation partners under NDA.</div>
   <div class="contact">
     <div><p class="kick">Next step</p><p class="bbig">See per-element timing live on a supported device, then talk through an evaluation on your own cards.</p></div>
-    <dl><dt>Demo</dt><dd>fluidsilicon.com/demo</dd><dt>Email</dt><dd>{F["contact"]}</dd><dt>Based in</dt><dd>Philadelphia, Pennsylvania</dd></dl>
+    <dl><dt>Demo</dt><dd>fluidsilicon.com/demo</dd><dt>Email</dt><dd>{F["contact"]}</dd><dt>Based in</dt><dd>Philadelphia, PA</dd></dl>
   </div>
   <p class="fn" style="margin-top:14px">AMD, Altera and their product names are trademarks of their respective owners. Fluid Silicon is not affiliated with or endorsed by them. © 2026 Fluid Silicon.</p>
 </section>

@@ -43,8 +43,11 @@ function makeEnv(opts) {
       getFileById: (id) => ({ setTrashed: (t) => { files[id].trashed = t; } }),
     },
     MailApp: { sendEmail: (m) => mail.push(m) },
+    UrlFetchApp: { fetch: () => ({ getResponseCode: () => 200, getContent: () => Buffer.from('png') }) },
+    console: { log() {}, warn() {}, error() {} },
     Utilities: {
       newBlob: (bytes, type, name) => ({ bytes, type, name }),
+      base64Encode: (b) => Buffer.from(b).toString('base64'),
       base64Decode: (s) => Buffer.from(s, 'base64'),
       formatDate: (d) => d.toISOString().slice(0, 10),
     },
@@ -92,7 +95,7 @@ test('demo request is saved and both emails go out', () => {
   assert.strictEqual(rows[1][1], 'Ada Lovelace');
   assert.strictEqual(rows[1][5], 'AMD UltraScale+, Altera Agilex');
   assert.strictEqual(env.mail.length, 2);
-  assert.strictEqual(env.mail[0].to, 'info@fluidsilicon.com');
+  assert.strictEqual(env.mail[0].to, 'info@fluidsilicon.com, vkogo@fluidsilicon.com, nmavuso@fluidsilicon.com');
   assert.strictEqual(env.mail[0].replyTo, 'ada@example.com');
   assert.ok(/two business days/.test(env.mail[1].body));
 });
@@ -121,7 +124,7 @@ test('application is saved with the résumé in Drive', () => {
   assert.strictEqual(f.type, 'application/pdf');
   assert.ok(/Grace Hopper - FPGA Engineer\.pdf$/.test(f.name));
   assert.strictEqual(Buffer.from(f.bytes).toString(), '%PDF-1.4 test résumé');
-  assert.strictEqual(env.mail[0].to, 'careers@fluidsilicon.com');
+  assert.strictEqual(env.mail[0].to, 'careers@fluidsilicon.com, vkogo@fluidsilicon.com, nmavuso@fluidsilicon.com');
 });
 
 test('the original site payload (no formType) still works', () => {
