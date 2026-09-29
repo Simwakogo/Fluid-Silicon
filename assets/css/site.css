@@ -926,3 +926,28 @@ html:not(.js) .res-toolbar { display: none; }
 .social--sm { width: 28px; height: 28px; border-radius: 6px; }
 .social--sm svg { width: 14px; height: 14px; }
 .foot-bottom .row { align-items: center; }
+
+/* ---------- home hero: chip in front of the fleet screen ---------- */
+.hero-figure { margin: 0; }
+.hero-stack { position: relative; min-height: 600px; }
+.hero-stack::before { content: ""; position: absolute; left: 0; bottom: 0; width: 60%; height: 70%; background: radial-gradient(closest-side, rgba(240, 96, 36, .28), rgba(240, 96, 36, 0)); filter: blur(30px); z-index: 0; }
+.hero-stack .mock { position: absolute; right: 0; top: 0; width: 74%; transform: perspective(1600px) rotateY(-12deg) rotateX(3deg) scale(.96); transform-origin: right center; opacity: .62; box-shadow: 0 30px 80px rgba(0, 0, 0, .55); filter: saturate(.85); z-index: 1; }
+.hero-stack .hero-chip { position: absolute; left: 0; bottom: 0; width: 52%; z-index: 2; }
+.hero-stack .hero-chip .fabric { width: 100%; filter: drop-shadow(0 24px 48px rgba(0, 0, 0, .65)); }
+.hero-stack .link { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
+.hero-stack .link path { fill: none; stroke: var(--orange); stroke-width: 1.5; stroke-dasharray: 4 5; opacity: .55; }
+.hero-stack .link circle { fill: var(--orange); opacity: .9; }
+.hero-stack .tag { position: absolute; z-index: 4; background: rgba(18, 18, 18, .94); border: 1px solid rgba(255, 255, 255, .14); border-radius: 10px; padding: 10px 14px; color: var(--dark-ink); font: 500 13px/1.35 var(--font-text); box-shadow: 0 12px 30px rgba(0, 0, 0, .45); display: block; }
+.hero-stack .tag small { color: var(--dark-ink-2); }
+.hero-stack .tag .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--orange); margin-right: 6px; box-shadow: 0 0 0 4px rgba(240, 96, 36, .25); }
+.hero-stack .tag .dot--gold { background: #e0b52a; box-shadow: 0 0 0 4px rgba(224, 181, 42, .25); }
+.hero-stack .tag--chip { left: 0; top: 14%; }
+.hero-stack .tag--fleet { right: 0; bottom: 6%; }
+.hero-figure .mock-caption { color: var(--dark-ink-2); margin-top: 20px; text-align: right; }
+@media (max-width: 1000px) { .hero-stack { min-height: 480px; } }
+@media (max-width: 700px) {
+  .hero-stack { min-height: 0; }
+  .hero-stack .mock, .hero-stack .link, .hero-stack .tag--fleet, .hero-stack::before { display: none; }
+  .hero-stack .hero-chip { position: static; width: min(100%, 360px); margin-inline: auto; }
+  .hero-stack .tag--chip { position: static; display: inline-block; margin-top: 14px; }
+}

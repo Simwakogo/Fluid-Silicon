@@ -39,7 +39,7 @@ const CONFIG = {
   RETENTION_DAYS_APPLY: 0,
 };
 
-const SIGNATURE = 'Fluid Silicon\nwww.fluidsilicon.com';
+const SIGNATURE = 'Fluid Silicon\nwww.fluidsilicon.com\nPhiladelphia, PA';
 const SITE = 'https://fluidsilicon.com';
 
 function esc_(t) { return String(t == null ? '' : t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
@@ -82,9 +82,8 @@ function card_(bodyHtml, footer) {
     '<table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:28px;border-top:1px solid #e5e1d8;width:100%"><tr>' +
     '<td style="padding-top:18px;font-size:15px;line-height:1.5">' +
     '<span style="font-weight:700;color:#15130f;letter-spacing:.02em">FLUID</span><span style="font-weight:700;color:#a67c00;letter-spacing:.02em">SILICON</span><br>' +
-    '<span style="color:#3f3b33">Silicon that reports its own health</span><br>' +
-    '<a href="' + SITE + '" style="color:#b04300;text-decoration:none">www.fluidsilicon.com</a>' +
-    '<span style="color:#6d6860"> &middot; Philadelphia, PA</span>' +
+    '<a href="' + SITE + '" style="color:#b04300;text-decoration:none">www.fluidsilicon.com</a><br>' +
+    '<span style="color:#6d6860">Philadelphia, PA</span>' +
     '</td></tr></table>' +
     '</div></div>' +
     '<p style="max-width:600px;margin:16px auto 0;font-size:12px;line-height:1.5;color:#6d6860;text-align:center">' + footer + '</p>' +

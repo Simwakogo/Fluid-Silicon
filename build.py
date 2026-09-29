@@ -396,6 +396,17 @@ def fabric_svg(uid, weak=False, n=12):
     return svg.replace('<g class="sweep">', f'<g class="sweep" clip-path="url(#{uid}-clip)">')
 
 
+
+def hero_stack(uid="hero"):
+    """Home hero visual: the chip in front, the fleet screen behind, one measured value linked to the fleet view."""
+    link = ('<svg class="link" viewBox="0 0 700 540" preserveAspectRatio="none" aria-hidden="true">'
+            '<path d="M292 300 C 380 300, 420 205, 500 205"/><circle cx="292" cy="300" r="4.5"/><circle cx="500" cy="205" r="3.5"/></svg>')
+    tags = ('<div class="tag tag--chip"><span class="dot"></span>Measured on the chip<br><small>every logic element, at speed</small></div>'
+            '<div class="tag tag--fleet"><span class="dot dot--gold"></span>Seen in the fleet<br><small>example: 1,248 cards, 3 need attention</small></div>')
+    return (f'<figure class="figure hero-figure"><div class="hero-stack">{mock("fleet")}<div class="hero-chip">{fabric_svg(uid + "-fab")}</div>{link}{tags}</div>'
+            f'<figcaption class="mock-caption">Illustrative screen with example data.</figcaption></figure>')
+
+
 def team_grid():
     out = ['<div class="team" id="team">']
     for t in C.TEAM:
@@ -799,7 +810,7 @@ def tech_tabs(which):
             ("Reserve", P("A small region of the device is reserved for the health layer: under 1% of LUTs and under 5% of flip-flops on a production shell.",
                           "How much, and where, is planned with your team during evaluation. This is the one thing integration asks of your build; your logic, routing and I/O are not touched."), S.card_illustration("tab-reserve")),
             ("Integrate", P("The health layer is added beside a design that is already in production, through the vendor's own flow: AMD Vivado for AMD parts, Altera Quartus for Altera parts.",
-                            "No RTL changes, no new silicon, no JTAG exposure, and under 2% delay impact on your design."), fabric_svg("fabric-int")),
+                            "No RTL changes, no new silicon, no JTAG exposure, and under 2% delay impact on your design."), S.card_illustration("tab-integrate")),
             ("Deploy", P("The platform runs on your site. Telemetry leaves each card in one vendor-neutral schema and lands in your existing monitoring; nothing leaves your network.",
                          "Read-only is the default. Voltage scaling, frequency scaling and repair are enabled separately, by policy; every action is scheduled and handshake-gated."), mock_figure("fleet|Fleet overview after deployment. Illustrative screen.", light=True)),
         ]
@@ -882,6 +893,7 @@ COMPONENTS = {
     "location": lambda a: location_card(),
     "tech_tabs": lambda a: tech_tabs(a),
     "industries_all": lambda a: industries_all(),
+    "hero_stack": lambda a: hero_stack(a or "hero"),
     "team": lambda a: team_grid(),
     "prize_quote": lambda a: prize_quote(),
     "whynow": lambda a: whynow(),
@@ -995,7 +1007,6 @@ def footer_html():
     <div class="foot-top" id="footer-nav">
       <div class="foot-brand">
         <a class="brand" href="/" aria-label="Fluid Silicon home">{logo_svg("logo-foot", "dark")}</a>
-        <p>Silicon that reports its own health. Every chip measured, run at its real limits, and retired on evidence. Starting with FPGAs.</p>
       </div>
       <div class="foot-col"><h2>Solutions</h2><ul>{sols}<li><a href="/solutions/">All solutions</a></li></ul></div>
       <div class="foot-col"><h2>Industries</h2><ul>{inds}</ul></div>
@@ -1038,7 +1049,7 @@ def page_ld(meta, body):
     if meta["path"].startswith("/blog/") and meta["path"] != "/blog/":
         h1 = re.search(r"<h1[^>]*>(.*?)</h1>", body, re.S)
         out.append({"@context": "https://schema.org", "@type": "BlogPosting", "headline": html.unescape(re.sub(r"<[^>]+>", "", h1.group(1))).strip() if h1 else meta["doc_title"],
-                    "description": meta["description"], "datePublished": POST_DATE, "dateModified": BUILD_DATE,
+                    "description": meta["description"], "datePublished": POST_DATE + "T09:00:00-04:00", "dateModified": BUILD_DATE + "T09:00:00-04:00",
                     "author": {"@type": "Organization", "name": "Fluid Silicon", "url": SITE_URL + "/"},
                     "publisher": {"@type": "Organization", "name": "Fluid Silicon", "logo": {"@type": "ImageObject", "url": SITE_URL + "/assets/img/icon-512.png"}},
                     "image": SITE_URL + "/assets/img/og-image.png", "mainEntityOfPage": SITE_URL + meta["path"]})
