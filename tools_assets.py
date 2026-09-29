@@ -50,29 +50,29 @@ def write_text(path, s):
 
 # ------------------------------------------------------------------ open graph image
 def og_html():
-    """1200 x 630 social image in the site's light design: logo, headline, and the card illustration."""
-    import svgparts as V
-    logo = B.logo_svg("og-logo")
-    art = V.card_illustration("og-card")
-    return f'''<!doctype html><html><head><meta charset="utf-8">
-<link rel="stylesheet" href="../src/assets/css/site.css">
-<style>
-html, body {{ margin: 0; width: 1200px; height: 630px; overflow: hidden; background: #ffffff; }}
+    """1200 x 630 social image: charcoal background, headline, and the chip floorplan from the site's hero."""
+    FONTS = "file://" + os.path.join(B.SRC, "assets", "fonts")
+    logo = B.logo_svg("og-logo", "dark")
+    chip = B.fabric_svg("og-chip")
+    return f'''<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face {{ font-family: "Red Hat Display"; src: url("{FONTS}/red-hat-display-latin-wght-normal.woff2"); font-weight: 300 900; }}
+@font-face {{ font-family: "Red Hat Text"; src: url("{FONTS}/red-hat-text-latin-wght-normal.woff2"); font-weight: 300 700; }}
+html, body {{ margin: 0; }}
 .og {{ position: relative; width: 1200px; height: 630px; box-sizing: border-box; padding: 64px 0 56px 72px; display: grid; grid-template-columns: 600px 1fr; gap: 24px; align-items: center;
-  background: linear-gradient(90deg, #ffffff 0 52%, #f6f4ef 52%); }}
+       background: #121212; background-image: radial-gradient(700px 420px at 82% 40%, rgba(240, 96, 36, .22), transparent 65%); font-family: "Red Hat Text", sans-serif; overflow: hidden; }}
 .left {{ display: grid; gap: 22px; align-content: center; }}
-.left > svg {{ height: 36px; width: auto; }}
-.k {{ font: 600 17px/1.3 var(--font-text); color: var(--gold-deep); margin: 14px 0 0; }}
-h1 {{ font: 650 64px/1.02 var(--font-display); letter-spacing: -.03em; color: var(--ink); margin: 0; max-width: 11ch; }}
-.sub {{ font: 400 22px/1.4 var(--font-text); color: var(--ink-2); margin: 0; max-width: 30ch; }}
+.left svg {{ width: 260px; height: auto; }}
+h1 {{ margin: 0; font: 650 72px/1.02 "Red Hat Display", sans-serif; letter-spacing: -0.025em; color: #f4f2ed; }}
+.sub {{ margin: 0; font-size: 24px; line-height: 1.4; color: #c3bfb6; max-width: 26ch; }}
 .right {{ display: grid; place-items: center; }}
-.right svg {{ width: 560px; height: auto; }}
-.bar {{ position: absolute; left: 0; right: 0; bottom: 0; height: 8px; background: linear-gradient(90deg, var(--orange) 0 34%, var(--gold) 34% 67%, var(--olive) 67%); }}
+.right svg {{ width: 470px; height: auto; filter: drop-shadow(0 24px 48px rgba(0, 0, 0, .6)); }}
+.right .sweep {{ display: none; }}
+.bar {{ position: absolute; left: 0; right: 0; bottom: 0; height: 8px; background: linear-gradient(90deg, #f06024 0 34%, #a67c00 34% 67%, #6c602a 67%); }}
 </style></head><body><div class="og">
-<div class="left">{logo}<p class="k">Silicon that reports its own health</p>
+<div class="left">{logo}
 <h1>See what every chip can really do.</h1>
 <p class="sub">Every logic element measured while the chip runs, in production, with no downtime. Starting with AMD and Altera FPGAs.</p></div>
-<div class="right">{art}</div><div class="bar"></div></div></body></html>'''
+<div class="right">{chip}</div><div class="bar"></div></div></body></html>'''
 
 
 # ------------------------------------------------------------------ technical brief (print, light theme)

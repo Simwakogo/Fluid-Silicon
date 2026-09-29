@@ -1,7 +1,7 @@
 {
   "name": "Fluid Silicon",
   "short_name": "Fluid Silicon",
-  "description": "Silicon that reports its own health. Starting with FPGAs.",
+  "description": "FPGA health monitoring and timing measurement.",
   "start_url": "/",
   "scope": "/",
   "display": "browser",

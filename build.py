@@ -1091,7 +1091,7 @@ def head_html(meta):
 <meta property="og:image" content="{SITE_URL}/assets/img/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Fluid Silicon: silicon that reports its own health.">
+<meta property="og:image:alt" content="Fluid Silicon: see what every chip can really do.">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/assets/img/mark.svg" type="image/svg+xml">
