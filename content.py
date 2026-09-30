@@ -35,9 +35,9 @@ NEWS = [
     {"date": "2026-05-05", "label": "May 2026", "title": "Penn Today: a way for computer chips to run more efficiently",
      "excerpt": "The University of Pennsylvania on the research behind Fluid Silicon and the President's Sustainability Prize awarded to Nhlanhla Mavuso for the project.",
      "path": "https://penntoday.upenn.edu/news/penn-student-develops-way-computer-chips-run-more-efficiently", "source": "Penn Today", "kind": "press"},
-    {"date": "2026-04-30", "label": "Spring 2026", "title": "Nhlanhla Mavuso awarded Penn's President's Sustainability Prize for Fluid Silicon",
-     "excerpt": "The University of Pennsylvania recognized the work behind Fluid Silicon: running chips at their measured limits instead of a worst-case margin.",
-     "path": "https://sustainability.upenn.edu/presidents-sustainability-prize", "source": "University of Pennsylvania", "kind": "award"},
+    {"date": "2026-04-16", "label": "April 2026", "title": "Nhlanhla Mavuso awarded Penn's President's Sustainability Prize for Fluid Silicon",
+     "excerpt": "Penn announces its 2026 prize recipients. The Sustainability Prize recognizes the work behind Fluid Silicon: running chips at their measured limits instead of a worst-case margin.",
+     "path": "https://penntoday.upenn.edu/news/class-2026-presidents-engagement-and-innovation-prize-winners-announced", "source": "Penn Today", "kind": "award"},
 ]
 
 # ------------------------------------------------------------------ solutions (by topic)
