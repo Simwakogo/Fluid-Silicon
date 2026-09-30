@@ -263,16 +263,16 @@ def mock(kind, light=False):
         tune = kind == "tune"
         br = S.bars([1, 2, 5, 12, 24, 41, 57, 66, 60, 44, 27, 13, 6, 2], 300, 64, low=2)
         sp = S.spark(S.series(9, 30, 2.6, 0.06, 0.12), 300, 64)
-        main = (f'<div class="mock-main"><div class="mock-head"><strong>Card A3-07</strong><span>AMD Virtex UltraScale+ · 16 nm · 4.2 years in service</span></div>'
+        main = (f'<div class="mock-main"><div class="mock-head"><strong>Card {"B2-04" if tune else "A3-07"}</strong><span>AMD Virtex UltraScale+ · 16 nm · {"2.1" if tune else "4.2"} years in service</span></div>'
                 + ('<div class="mock-tiles"><div><small>Median slack</small><b>33.7%</b></div><div><small>Weakest element</small><b>14.1%</b></div><div><small>Time to threshold</small><b class="green">5.2 yrs</b></div><div><small>Operating point</small><b>0.85 V</b></div></div>' if tune else
                    '<div class="mock-tiles"><div><small>Median slack</small><b>33.7%</b></div><div><small>Weakest element</small><b class="red">8.2%</b></div><div><small>Time to threshold</small><b class="red">1.4 yrs</b></div><div><small>Operating point</small><b>0.85 V</b></div></div>') +
                 f'<div class="mock-two"><div class="mock-panel"><div class="ph"><strong>Slack, all elements</strong><span>% of clock</span></div>{br}</div>'
                 f'<div class="mock-panel"><div class="ph"><strong>Path delay increase</strong><span>fitted, 55 °C history</span></div>{sp}</div></div>'
                 f'<div class="mock-panel"><dl class="mock-kv"><dt>Last sweep</dt><dd>2 min ago, 1.0 s</dd><dt>Aging model</dt><dd>Power-law fit to this card\'s temperature history</dd>'
-                + ('<dt>Recommended action</dt><dd><span class="st st-watch">Lower operating point to 0.82 V in the next window</span></dd><dt>Approval</dt><dd>Waiting for your approval; re-measured after the change</dd></dl></div></div>' if tune else
+                + ('<dt>Recommended action</dt><dd><span class="st st-watch">Lower operating point to 0.83 V in the next window</span></dd><dt>Approval</dt><dd>Waiting for your approval; re-measured after the change</dd></dl></div></div>' if tune else
                    '<dt>Recommended action</dt><dd><span class="st st-act">Schedule a repair window</span></dd><dt>Approval</dt><dd>Waiting for your change process</dd></dl></div></div>'))
         body = f'<div class="mock-body">{_mock_nav("Cards")}{main}</div>'
-        label = ("Card detail screen for one healthy card with a recommended lower operating point of 0.82 V awaiting approval." if tune else
+        label = ("Card detail screen for one healthy card with a recommended lower operating point of 0.83 V awaiting approval." if tune else
                  "Card detail screen for one card: median slack 33.7%, weakest element 8.2%, time to threshold 1.4 years, with a slack histogram, an aging curve, and a recommended repair window awaiting approval.")
     else:
         sp = S.spark(S.series(3, 30, 3.1, 0.05, 0.1), 300, 64)
@@ -329,7 +329,7 @@ def eeo():
 def about_blurb():
     return ('<p>Fluid Silicon gives the people who run critical systems a clear view of every chip\'s health and capability. '
             'The platform measures timing on every logic element of an FPGA while it runs, so operators can run each chip at its real limits '
-            'and see failure coming. Hardware you can see is hardware you can trust.</p>')
+            'and know when a card will need attention. Hardware you can see is hardware you can trust.</p>')
 
 
 def cite(key):
@@ -368,7 +368,7 @@ def fabric_svg(uid, weak=False, n=12):
             x0, y0 = die + c * rw, die + r * rh
             k = r * cols + c
             out.append(f'<rect x="{x0 + 1.5:.1f}" y="{y0 + 1.5:.1f}" width="{rw - 3:.1f}" height="{rh - 3:.1f}" fill="none" stroke="{colors[k]}" stroke-width="1" opacity=".55"/>')
-            out.append(f'<text x="{x0 + 4:.1f}" y="{y0 + rh - 4:.1f}" font-family="ui-monospace, Menlo, monospace" font-size="6.5" fill="{colors[k]}" opacity=".8">X{c}Y{rows - 1 - r}</text>')
+            out.append(f'<text x="{x0 + 4:.1f}" y="{y0 + rh - 4:.1f}" font-family="ui-monospace, Menlo, monospace" font-size="6.5" fill="{colors[k]}" opacity=".8" aria-hidden="true">X{c}Y{rows - 1 - r}</text>')
             # logic columns: faint stripes, and sensor cells in a few of them
             ncol = 9
             sensor_cols = sorted(rnd.sample(range(1, ncol), 4))
@@ -1179,9 +1179,10 @@ def build_site(pages):
     if os.path.exists(out):
         shutil.rmtree(out)
     shutil.copytree(os.path.join(SRC, "assets"), os.path.join(out, "assets"))
-    for extra in ["CNAME", ".nojekyll", "robots.txt", "site.webmanifest", "favicon.ico"]:
+    for extra in ["CNAME", ".nojekyll", "robots.txt", "site.webmanifest", "favicon.ico", ".well-known/security.txt"]:
         src = os.path.join(SRC, extra)
         if os.path.exists(src):
+            os.makedirs(os.path.dirname(os.path.join(out, extra)), exist_ok=True)
             shutil.copy(src, os.path.join(out, extra))
     for meta, body in pages:
         write(out_path(out, meta["path"]), page_doc(meta, body))

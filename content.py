@@ -33,11 +33,11 @@ NEWS = [
      "excerpt": "Six pages on the problem, the platform, adoption, security and integration, and device support.",
      "path": "/assets/docs/fluid-silicon-technical-brief.pdf", "source": "Fluid Silicon", "kind": "update"},
     {"date": "2026-05-05", "label": "May 2026", "title": "Penn Today: a way for computer chips to run more efficiently",
-     "excerpt": "The University of Pennsylvania on the research behind Fluid Silicon and the President's Sustainability Prize it received.",
+     "excerpt": "The University of Pennsylvania on the research behind Fluid Silicon and the President's Sustainability Prize awarded to Nhlanhla Mavuso for the project.",
      "path": "https://penntoday.upenn.edu/news/penn-student-develops-way-computer-chips-run-more-efficiently", "source": "Penn Today", "kind": "press"},
-    {"date": "2026-04-30", "label": "Spring 2026", "title": "President's Sustainability Prize, University of Pennsylvania",
-     "excerpt": "Awarded for the work behind Fluid Silicon: running chips at their measured limits instead of a worst-case margin.",
-     "path": "https://penntoday.upenn.edu/news/penn-student-develops-way-computer-chips-run-more-efficiently", "source": "University of Pennsylvania", "kind": "award"},
+    {"date": "2026-04-30", "label": "Spring 2026", "title": "Nhlanhla Mavuso awarded Penn's President's Sustainability Prize for Fluid Silicon",
+     "excerpt": "The University of Pennsylvania recognized the work behind Fluid Silicon: running chips at their measured limits instead of a worst-case margin.",
+     "path": "https://sustainability.upenn.edu/presidents-sustainability-prize", "source": "University of Pennsylvania", "kind": "award"},
 ]
 
 # ------------------------------------------------------------------ solutions (by topic)
@@ -535,8 +535,8 @@ TEAM = [
      "creds": ["Penn VIPER graduate", "President's Sustainability Prize, 2026"],
      "links": [("linkedin", "https://www.linkedin.com/in/nmavuso/")]},
     {"slug": "andre-dehon", "name": "Dr. André DeHon", "role": "Co-Founder and Chief Scientific Advisor",
-     "bio": "André brings decades of reconfigurable-computing research at the University of Pennsylvania, where he is the Oliver C. Boileau Jr. and Nan Eleze Boileau Professor of Electrical Engineering. His work on FPGA architecture through Penn's Implementation of Computation Group shaped the technical foundation behind Fluid Silicon's approach.",
-     "creds": ["ACM Fellow", "IEEE Fellow", "IEEE Reconfigurable Computing Hall of Fame", "National Academy of Inventors"],
+     "bio": "André brings decades of reconfigurable-computing research at the University of Pennsylvania, where he is the Oliver C. Boileau Jr. and Nan Eleze Boileau Professor of Electrical Engineering. His work on FPGA architecture through Penn's Implementation of Computation Lab shaped the technical foundation behind Fluid Silicon's approach.",
+     "creds": ["ACM Fellow", "IEEE Fellow", "TCFPGA Hall of Fame, 2019", "National Academy of Inventors"],
      "links": [("scholar", "https://scholar.google.com/citations?user=nintPk8AAAAJ"), ("penn", "https://directory.engineering.upenn.edu/andre-dehon/")]},
 ]
 
