@@ -47,7 +47,7 @@ SOLUTIONS = [
         "short": "Voltage and frequency set by measurement, per chip.",
         "lead": "Timing margins are set once, for the slowest chip at the hottest corner, because that is the only chip a vendor can guarantee. Fluid Silicon measures the margin each of your chips has and converts the difference into lower power and higher clocks, with the margin you specify kept in place.",
         "impact": [("30–54%", "timing margin carried today for the worst-case corner*"),
-                   ("< 20 ps", "per-link precision: the margin you keep is measurement error plus drift"),
+                   ("< 20 ps", "per-link precision; the margin you keep covers measurement error plus drift"),
                    ("1 s", "to re-measure every logic element after a change")],
         "apps": [
             ("avs", "power", "Adaptive Voltage Scaling", "Supply voltage set to what each chip's measured timing needs."),
@@ -58,7 +58,7 @@ SOLUTIONS = [
         "dives": [
             {"id": "avs", "kicker": "Adaptive Voltage Scaling", "title": "Reduce power, safely.",
              "bullets": ["Voltage set from timing measured on that chip, not a family datasheet.",
-                         "Margin held for measurement error and drift until the next sweep: under 20 ps per link.",
+                         "Margin held only for measurement error and drift until the next sweep; each link is resolved to under 20 ps.",
                          "Every change scheduled, handshake-gated and re-measured within a second.",
                          "One policy on AMD and Altera parts.",
                          "Read-only first: the recommended operating point is visible before anything moves."],
@@ -75,7 +75,7 @@ SOLUTIONS = [
              "cta": ("Technical brief (PDF)", "/assets/docs/fluid-silicon-technical-brief.pdf")},
             {"id": "signoff", "kicker": "Per-Chip Sign-off", "title": "One margin per chip.",
              "bullets": ["Each chip's path-delay distribution, measured link by link.",
-                         "Sign-off margin: measurement error plus drift, under 20 ps.",
+                         "Sign-off margin: measurement error plus drift, with each link resolved to under 20 ps.",
                          "Measuring more chips finds more tails; it adds no margin to the chips without them.",
                          "The same sign-off from 28 nm to 10 nm class."],
              "visual": "illus:illus-pp",
@@ -224,7 +224,7 @@ SOLUTIONS = [
         "lead": "Two cards with the same part number are not the same card. Fluid Silicon characterizes every LUT and carry block at speed before a card enters service: what it can sustain and where it is weak.",
         "impact": [("1 s", "to characterize every logic element of a card"),
                    ("> 20%", "random variation at 16, 14 and 7 nm, on top of systematic variation across the die"),
-                   ("< 20 ps", "per-link precision, error plus drift")],
+                   ("< 20 ps", "per-link measurement precision")],
         "apps": [
             ("incoming", "chip", "Incoming Characterization", "Every card measured at speed on arrival, read-only."),
             ("maps", "layers", "Weak-Resource Maps", "Where each chip is slow, so your next build can avoid it."),
@@ -437,13 +437,13 @@ INDUSTRIES = [
     {
         "slug": "aerospace-defense", "name": "Aerospace & Defense", "icon": "satellite", "art": "satellite",
         "short": "Far-edge systems with tight power budgets and no service access.",
-        "lead": "Satellites, aircraft, radar and remote ground stations hold FPGAs to strict reliability bounds under tight power budgets, often with no chance of service. Fluid Silicon lets those systems watch their own timing health and plan around degradation.",
-        "stats": [("18 GHz", "top of the 1 MHz to 18 GHz range far-edge FPGA systems process"), ("< 1%", "of LUTs for self-monitoring"), ("1 s", "to check every logic element in the field")],
-        "pillars": [("monitor", "Self-monitoring", "The system checks its own logic at speed while it runs."),
-                    ("model", "Aging prediction", "A time-to-threshold per board, from its own temperature history."),
-                    ("power", "Power where it counts", "Adaptive voltage scaling within the margin each device has measured."),
-                    ("shield", "Clear about scope", "Complements radiation mitigation such as scrubbing and redundancy; does not replace it.")],
-        "modules": ["reliability-availability-serviceability", "failure-prediction-diagnostics", "power-performance", "lifecycle-second-life", "card-qualification"],
+        "lead": "Satellites, aircraft, radar and remote ground stations hold FPGAs to strict reliability bounds under tight power budgets, often with no chance of service. Fluid Silicon starts before deployment, with a per-element qualification of every board, then lets fielded systems watch their own timing health and plan around degradation. Tuning and repair come later, and only where the program's configuration control allows.",
+        "stats": [("0", "changes to a fielded design until you approve one"), ("< 1%", "of LUTs for self-monitoring"), ("1 s", "to check every logic element in the field")],
+        "pillars": [("check", "Qualification first", "Every board characterized per element before it ships, with weak resources mapped and spares identified."),
+                    ("monitor", "Read-only monitoring", "The fielded system checks its own logic at speed while it runs; nothing changes without approval."),
+                    ("model", "Aging prediction", "A time-to-threshold per board, from its own temperature history, for planning replacements and mission life."),
+                    ("shield", "Clear about scope", "Complements radiation mitigation such as scrubbing and redundancy; does not replace it. Tuning and repair only where configuration control allows.")],
+        "modules": ["card-qualification", "reliability-availability-serviceability", "failure-prediction-diagnostics", "lifecycle-second-life", "power-performance"],
         "quotes": [],
         "resources": ["aging", "security", "brief"],
     },
@@ -480,7 +480,7 @@ IND = {i["slug"]: i for i in INDUSTRIES}
 # what each solution does for an industry: four bullets, used on every industry page
 MODULE_BULLETS = {
     "card-qualification": ["Every card measured at speed before it enters service.", "Tail cards found at incoming, not in the field.", "A per-card timing and variation report, read-only.", "Weak-resource maps for your next build."],
-    "power-performance": ["Voltage trimmed to what each chip's measured timing needs.", "Frequency raised where measured margin supports it.", "Margin kept for error plus drift, under 20 ps per link.", "Changes scheduled, handshake-gated and re-measured."],
+    "power-performance": ["Voltage trimmed to what each chip's measured timing needs.", "Frequency raised where measured margin supports it.", "Margin kept only for measurement error plus drift; each link resolved to under 20 ps.", "Changes scheduled, handshake-gated and re-measured."],
     "reliability-availability-serviceability": ["Every logic element swept about once a second, with no downtime.", "A time-to-threshold per card from its own temperature history.", "Alerts on your thresholds, actions in your windows.", "Where an element degrades, only that path is moved, through your change process."],
     "failure-prediction-diagnostics": ["A forecast per card and per element.", "Errors tied to the logic that caused them.", "Outliers surfaced before they fail.", "Per-element history for root cause and vendor feedback."],
     "fleet-operations": ["One health metric on AMD and Altera parts.", "One telemetry schema into your existing monitoring.", "Read-only by default; changes by policy, in your windows.", "Dashboards and reports by family, generation, site or vendor."],
@@ -532,11 +532,11 @@ JOBS = [
 TEAM = [
     {"slug": "nhlanhla-mavuso", "name": "Nhlanhla Mavuso", "role": "Co-Founder and CEO",
      "bio": "Nhlanhla led the research behind Fluid Silicon at the University of Pennsylvania, where he graduated from the Vagelos Integrated Program in Energy Research (VIPER), run jointly by Penn's School of Arts & Sciences and School of Engineering and Applied Science. Trained to look at systems by what they waste, he saw the biggest waste in deployed hardware as uncertainty: capability held back because nobody could see what each chip could really do.",
-     "creds": ["Penn VIPER graduate", "President's Sustainability Prize, 2026"],
+     "creds": ["BA Physics, Penn 2026", "BSE Computer Engineering, Penn 2026", "MSE Electrical Engineering, Penn 2026", "VIPER Class of 2026", "President's Sustainability Prize, 2026"],
      "links": [("linkedin", "https://www.linkedin.com/in/nmavuso/")]},
     {"slug": "andre-dehon", "name": "Dr. André DeHon", "role": "Co-Founder and Chief Scientific Advisor",
-     "bio": "André brings decades of reconfigurable-computing research at the University of Pennsylvania, where he is the Oliver C. Boileau Jr. and Nan Eleze Boileau Professor of Electrical Engineering. His work on FPGA architecture through Penn's Implementation of Computation Lab shaped the technical foundation behind Fluid Silicon's approach.",
-     "creds": ["ACM Fellow", "IEEE Fellow", "TCFPGA Hall of Fame, 2019", "National Academy of Inventors"],
+     "bio": "André brings decades of reconfigurable-computing research, at Berkeley, Caltech and, since 2006, the University of Pennsylvania, where he is the Oliver C. Boileau Jr. and Nan Eleze Boileau Professor of Electrical Engineering. His work on FPGA architecture and interconnect through Penn's Implementation of Computation Lab shaped the technical foundation behind Fluid Silicon's approach.",
+     "creds": ["SB, SM, PhD, MIT", "ACM Fellow", "IEEE Fellow", "NAI Fellow", "10 papers in the TCFPGA Hall of Fame", "Chair, ACM SIGDA TC on FPGAs"],
      "links": [("scholar", "https://scholar.google.com/citations?user=nintPk8AAAAJ"), ("penn", "https://directory.engineering.upenn.edu/andre-dehon/")]},
 ]
 
@@ -547,7 +547,7 @@ PRIZE_QUOTE = ("Fluid Silicon's adaptive approach to chip performance exemplifie
 WHYNOW = [
     ("> 20%", "Variation is now a first-order constraint", "At 16, 14 and 7 nm, random variation alone exceeds 20%, on top of systematic variation across the die. Two chips with the same part number are less alike with every node.", "/blog/the-fpga-margin-problem/"),
     ("6+ years", "Cards stay in service longer than their models assumed", "Fleets keep cards for six years and more, and hot enclosures age faster than cool ones. Timing models are set once; the silicon keeps changing.", "/blog/aging-is-measurable/"),
-    ("5", "Fleets are large and mixed", "One operator keeps five board generations in deployment at once, across more than a million hosts. At that scale, a margin set for the worst chip is a line item, and a surprise failure does not stay contained.", "/blog/one-health-metric-many-generations/"),
+    ("5", "Fleets are large and mixed", "Microsoft reports five generations of FPGA boards in deployment at once (FPGA 2026), on a platform that passed a million hosts in 2018 (NSDI 2018). At that scale, a margin set for the worst chip is a line item, and a surprise failure does not stay contained.", "/blog/one-health-metric-many-generations/"),
 ]
 
 # ------------------------------------------------------------------ culture (careers page)

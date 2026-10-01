@@ -278,7 +278,7 @@ def mock(kind, light=False):
         sp = S.spark(S.series(3, 30, 3.1, 0.05, 0.1), 300, 64)
         br = S.bars([9, 8, 8, 7, 7, 6, 6, 5, 5, 4, 4, 3, 2, 1], 300, 64, low=0)
         main = (f'<div class="mock-main"><div class="mock-head"><strong>Program: far-edge RF units</strong><span>24 boards · 3 platforms · mission month 14</span></div>'
-                f'<div class="mock-tiles"><div><small>Nominal</small><b class="green">23</b></div><div><small>Watch</small><b class="amber">1</b></div><div><small>Median time to threshold</small><b>6.9 yrs</b></div><div><small>Power saved</small><b>7.4%</b></div></div>'
+                f'<div class="mock-tiles"><div><small>Nominal</small><b class="green">23</b></div><div><small>Watch</small><b class="amber">1</b></div><div><small>Median time to threshold</small><b>6.9 yrs</b></div><div><small>Config changes</small><b>0</b></div></div>'
                 f'<div class="mock-two"><div class="mock-panel"><div class="ph"><strong>Path delay increase, hottest board</strong><span>fitted</span></div>{sp}</div>'
                 f'<div class="mock-panel"><div class="ph"><strong>Time to threshold by board</strong><span>years</span></div>{br}</div></div>'
                 f'<div class="mock-panel mock-table-wrap"><div class="ph"><strong>Watch list</strong><span>1 of 24</span></div>'
@@ -433,6 +433,7 @@ def whynow():
     for v, t, d, href in C.WHYNOW:
         out.append(f'<div><div class="v">{esc(v)}</div><h3>{esc(t)}</h3><p>{esc(d)}</p><a class="arrow-link" href="{href}">Read more</a></div>')
     out.append('</div>')
+    out.append(f'<p class="footnote mt-20">Sources: {cite("fpga26")}; {cite("nsdi")}. Margin and precision figures are Fluid Silicon measurements and vary with variation pattern, workload, vendor and age.</p>')
     return "".join(out)
 
 
@@ -996,7 +997,7 @@ def nav_html(active):
 </header>"""
 
 
-LEGAL_ENTITY = "Fluid Silicon"      # before launch: the registered name, for example "Fluid Silicon, Inc."
+LEGAL_ENTITY = "Fluid Silicon Inc."      # registered name per the Sept 2026 business model deck; confirm exact form with counsel
 
 
 def footer_html():
