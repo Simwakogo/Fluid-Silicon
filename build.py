@@ -408,7 +408,7 @@ def hero_stack(uid="hero"):
 
 
 def team_grid():
-    out = ['<div class="team" id="team">']
+    out = ['<div class="team-rail" id="team"><div class="team">']
     for t in C.TEAM:
         creds = "".join(f'<li>{esc(c)}</li>' for c in t["creds"])
         links = ""
@@ -419,7 +419,7 @@ def team_grid():
             links += f'<a class="social {cls}" href="{url}" rel="noopener" aria-label="{esc(t["name"])} on {lbl}" title="{lbl}">{ic}</a>'
         out.append(f'<article class="person"><img class="photo" src="/assets/img/team/{t["slug"]}.jpg" alt="{esc(t["name"])}" width="128" height="128">'
                    f'<div class="who"><h3>{esc(t["name"])}</h3><span class="role">{esc(t["role"])}</span><p>{esc(t["bio"])}</p><ul class="creds" aria-label="Credentials">{creds}</ul><div class="links">{links}</div></div></article>')
-    out.append('</div>')
+    out.append('</div><div class="team-nav"><button type="button" data-rail="-1" aria-label="Previous team member"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" data-rail="1" aria-label="Next team member"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div></div>')
     return "".join(out)
 
 

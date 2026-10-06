@@ -456,3 +456,25 @@
     route();
   }
 })();
+
+// team rail arrows
+(function () {
+  document.querySelectorAll('.team-rail').forEach(function (rail) {
+    var track = rail.querySelector('.team'), btns = rail.querySelectorAll('[data-rail]');
+    if (!track || btns.length < 2) return;
+    function update() {
+      btns[0].disabled = track.scrollLeft < 4;
+      btns[1].disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+    }
+    btns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var card = track.querySelector('.person');
+        var step = card ? card.offsetWidth + parseFloat(getComputedStyle(track).gap || 24) : 320;
+        track.scrollBy({ left: step * Number(b.dataset.rail), behavior: 'smooth' });
+      });
+    });
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  });
+})();

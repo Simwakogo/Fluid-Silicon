@@ -849,6 +849,18 @@ html:not(.js) .res-toolbar { display: none; }
 .person .creds { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 8px; margin-top: 10px; }
 .person .creds li { font: 500 12px/1 var(--font-text); color: var(--ink-2); background: var(--gold-soft); border-radius: 999px; padding: 6px 10px; }
 @media (max-width: 900px) { .team { grid-template-columns: minmax(0, 1fr); } }
+/* team rail: cards on one line, scroll or arrows to see more */
+.team-rail { position: relative; }
+.team-rail .team { display: flex; gap: clamp(24px, 3vw, 40px); overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding-bottom: 8px; scrollbar-width: none; -ms-overflow-style: none; }
+.team-rail .team::-webkit-scrollbar { display: none; }
+.team-rail .person { flex: 0 0 calc(50% - clamp(12px, 1.5vw, 20px) - 28px); scroll-snap-align: start; }
+@media (max-width: 900px) { .team-rail .person { flex-basis: min(100%, 520px); } }
+.team-nav { display: flex; gap: 8px; justify-content: flex-end; margin-top: 14px; }
+.team-nav button { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: var(--tile); color: var(--ink); display: grid; place-items: center; cursor: pointer; }
+.team-nav button:hover { background: var(--gold-soft); border-color: var(--gold-deep); }
+.team-nav button[disabled] { opacity: .35; cursor: default; background: var(--tile); }
+.team-nav svg { width: 18px; height: 18px; }
+
 @media (max-width: 520px) { .person { grid-template-columns: minmax(0, 1fr); } .person .photo { width: 96px; height: 96px; } }
 .team-note { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; }
 
