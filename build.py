@@ -1020,7 +1020,7 @@ def footer_html():
         <li><a href="/careers/">Careers</a></li><li><a href="/contact/">Contact</a></li><li><a href="/demo/">Request a demo</a></li></ul></div>
     </div>
     <div class="foot-bottom">
-      <p>© 2026 {LEGAL_ENTITY}. AMD, Altera and their product names are trademarks of their respective owners. Fluid Silicon is not affiliated with or endorsed by them.</p>
+      <p>© 2026 {LEGAL_ENTITY} All rights reserved. AMD, Altera and their product names are trademarks of their respective owners. Fluid Silicon is not affiliated with or endorsed by them.</p>
       <div class="row"><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a><span class="muted">Philadelphia, PA</span><a class="social social--li social--sm" href="{FACTS["linkedin"]}" rel="noopener" aria-label="Fluid Silicon on LinkedIn">{LINKEDIN}</a></div>
     </div>
   </div>
