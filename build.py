@@ -91,7 +91,7 @@ NAV = [
               ("/technology/devices/", "Device support", "AMD and Altera families, with status.")]),
     ], ("/technology/", "Technology overview")),
     ("mega", "resources", "Resources", "/blog/", [
-        ("", [("/blog/", "Blog", "Margins, aging, fleets and how an evaluation runs."),
+        ("", [("/blog/", "Blog", "Margins, aging, power and how an evaluation runs."),
               ("/technology/security/", "Security and integration", "Where the health layer sits and its six guarantees."),
               ("/technology/devices/", "Device support", "AMD and Altera families, with status.")]),
     ], ("feature", "brief")),
@@ -185,8 +185,8 @@ _CTA_N = 0
 _CAP_N = 0
 
 
-def cta_band(title="See per-element timing on a supported device.",
-             text="A 30-minute session: live measurements on a supported device, and what an evaluation on your cards involves.",
+def cta_band(title="Measure a device at speed, live.",
+             text="A 30-minute session: in-system slack measurements on a supported AMD or Altera device, and what an evaluation on your boards involves.",
              brief=True):
     b = ('<a class="btn btn--ghost" href="/assets/docs/fluid-silicon-technical-brief.pdf">Technical brief (PDF)</a>' if brief else "")
     global _CTA_N
@@ -215,7 +215,7 @@ LIFECYCLE = [
 LOOP4 = [
     ("monitor", "Monitor", "Every logic element swept in about a second while the design runs."),
     ("model", "Model", "An aging curve per card and per element, with a predicted time-to-threshold."),
-    ("tune", "Tune", "Voltage and frequency set to what each chip can sustain, in windows you schedule."),
+    ("tune", "Tune", "Voltage and frequency held within each device's measured margin, in windows you schedule."),
     ("repair", "Repair", "Only when an element degrades toward your threshold: that path moves to a healthy resource, through your change process."),
 ]
 
@@ -231,8 +231,8 @@ def lifecycle():
             f'<div><p class="when">{after[0]}</p><h3>{after[1]}</h3><p>{after[2]}</p></div></div>')
 
 
-def _mock_nav(on):
-    items = ["Fleet", "Cards", "Alerts", "Models", "Reports", "Settings"]
+def _mock_nav(on, items=None):
+    items = items or ["Fleet", "Cards", "Alerts", "Models", "Reports", "Settings"]
     out = ['<div class="mock-nav" aria-hidden="true">']
     for i in items:
         out.append(f'<span class="on">{i}</span>' if i == on else f'<span>{i}</span>')
@@ -240,11 +240,59 @@ def _mock_nav(on):
     return "".join(out)
 
 
+def slack_map(uid, w=300, h=120, cols=40, rows=16):
+    """One chip's measured slack as a heat map: the lowest slack in each small region of logic, hard columns blank,
+    clock-region lines, and the weakest element ringed. Illustrative; deterministic per uid."""
+    import math
+    import random
+    rnd = random.Random(uid)
+    cw, ch = w / cols, h / rows
+    weak = (27, 4)
+    hard = {9, 22, 33}
+    ramp = [(0.20, "#d2492f"), (0.32, "#ec8f3e"), (0.45, "#e3c25a"), (0.60, "#9cc96b")]
+    out = [f'<svg class="slackmap" viewBox="0 0 {w} {h}" aria-hidden="true" focusable="false">',
+           f'<rect width="{w}" height="{h}" rx="4" fill="#f4f1ea"/>']
+    for r in range(rows):
+        for c in range(cols):
+            if c in hard:
+                continue
+            d = (c - weak[0]) ** 2 / 30 + (r - weak[1]) ** 2 / 8
+            v = 0.66 + 0.16 * math.sin(c / 6.0) * math.cos(r / 4.0) + rnd.uniform(-0.07, 0.07) - 0.52 * math.exp(-d)
+            fill = next((col for lim, col in ramp if v < lim), "#57a773")
+            out.append(f'<rect x="{c * cw + .5:.1f}" y="{r * ch + .5:.1f}" width="{cw - 1:.1f}" height="{ch - 1:.1f}" rx="1" fill="{fill}"/>')
+    for k in range(1, 4):
+        out.append(f'<line x1="0" x2="{w}" y1="{k * h / 4:.1f}" y2="{k * h / 4:.1f}" stroke="#15130f" stroke-opacity=".18" stroke-width=".8"/>')
+    x, y = weak[0] * cw + cw / 2, weak[1] * ch + ch / 2
+    out.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{ch * 1.15:.1f}" fill="none" stroke="#15130f" stroke-width="1.6"/>')
+    out.append('</svg>')
+    return "".join(out)
+
+
+DEVICE_NAV = ["Chip", "Elements", "History", "Model", "Operating point", "Reports"]
+
+
 def mock(kind, light=False):
     """Static product screens. Illustrative data; the numbers are the site's own figures, not a customer's."""
     cls = "mock mock--light" if light else "mock"
-    bar = '<div class="mock-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="mock-title">Fluid Silicon · Fleet health</span></div>'
-    if kind == "fleet":
+    title = {"fleet": "Fleet health", "program": "Program health"}.get(kind, "Device health")
+    bar = f'<div class="mock-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="mock-title">Fluid Silicon · {title}</span></div>'
+    if kind == "device":
+        hm = slack_map("devmap")
+        sp = S.spark(S.series(11, 30, 14.6, -0.21, 0.18), 300, 56)
+        main = (f'<div class="mock-main"><div class="mock-head"><strong>Chip B2-04 · XCVU9P</strong><span>AMD Virtex UltraScale+ · 16 nm · measured 2 min ago</span></div>'
+                f'<div class="mock-tiles"><div><small>Median slack</small><b>33.7%</b></div><div><small>Worst slack</small><b class="red">8.2%</b></div><div><small>Time to threshold</small><b class="red">1.4 yrs</b></div><div><small>Clock</small><b>250 MHz</b></div></div>'
+                f'<div class="mock-two"><div class="mock-panel"><div class="ph"><strong>Worst-slack element</strong><span>X84Y212 · C6LUT</span></div>{sp}</div>'
+                f'<div class="mock-panel"><div class="ph"><strong>Slack across the chip</strong><span>lowest per region</span></div>{hm}</div></div>'
+                f'<div class="mock-panel mock-table-wrap"><div class="ph"><strong>Lowest-slack elements</strong><span>the three lowest</span></div>'
+                f'<table class="mock-table"><thead><tr><th>Site</th><th>Element</th><th>Slack</th><th>Time to threshold</th><th>Status</th></tr></thead><tbody>'
+                f'<tr><td>X84Y212</td><td>C6LUT</td><td>8.2%</td><td>1.4 yrs</td><td><span class="st st-act">Action</span></td></tr>'
+                f'<tr><td>X85Y212</td><td>Carry</td><td>9.6%</td><td>2.2 yrs</td><td><span class="st st-watch">Watch</span></td></tr>'
+                f'<tr><td>X40Y96</td><td>B5LUT</td><td>11.9%</td><td>2.8 yrs</td><td><span class="st st-watch">Watch</span></td></tr>'
+                f'</tbody></table></div></div>')
+        body = f'<div class="mock-body">{_mock_nav("Chip", DEVICE_NAV)}{main}</div>'
+        label = ("Device screen: median slack 33.7%, worst slack 8.2% at site X84Y212, time to threshold 1.4 years, clock 250 MHz, "
+                 "with a slack map across the die, the worst-slack element's history and a table of the three lowest-slack elements.")
+    elif kind == "fleet":
         sp = S.spark(S.series(5, 30, 37.2, 0.04, 0.35), 300, 64)
         br = S.bars([2, 3, 6, 11, 19, 31, 46, 58, 64, 52, 38, 21, 9, 4], 300, 64, low=2)
         main = (f'<div class="mock-main"><div class="mock-head"><strong>Fleet overview</strong><span>1,248 cards · AMD and Altera · updated 2 min ago</span></div>'
@@ -327,9 +375,8 @@ def eeo():
 
 
 def about_blurb():
-    return ('<p>Fluid Silicon gives the people who run critical systems a clear view of every chip\'s health and capability. '
-            'The platform measures timing on every logic element of an FPGA while it runs, so operators can run each chip at its real limits '
-            'and know when a card will need attention. Hardware you can see is hardware you can trust.</p>')
+    return ('<p>Fluid Silicon builds in-system timing measurement for FPGAs. Its health layer measures setup slack on every LUT and carry chain '
+            'at operating frequency while the design runs, flags the paths losing margin and predicts when each device will need attention.</p>')
 
 
 def cite(key):
@@ -398,12 +445,14 @@ def fabric_svg(uid, weak=False, n=12):
 
 
 def hero_stack(uid="hero"):
-    """Home hero visual: the chip in front, the fleet screen behind, one measured value linked to the fleet view."""
+    """Home hero visual: the chip in front, that chip's own screen behind, its weakest element linked to the slack map."""
+    # from a cell on the die to the ringed element on the chip's slack map; the points are measured on the page
+    # (1200 to 1600 px wide, where the overlay is drawn) and the overlay is hidden below that
     link = ('<svg class="link" viewBox="0 0 700 540" preserveAspectRatio="none" aria-hidden="true">'
-            '<path d="M292 300 C 380 300, 420 205, 500 205"/><circle cx="292" cy="300" r="4.5"/><circle cx="500" cy="205" r="3.5"/></svg>')
-    tags = ('<div class="tag tag--chip"><span class="dot"></span>Measured on the chip<br><small>every logic element, at speed</small></div>'
-            '<div class="tag tag--fleet"><span class="dot dot--gold"></span>Seen in the fleet<br><small>example: 1,248 cards, 3 need attention</small></div>')
-    return (f'<figure class="figure hero-figure"><div class="hero-stack">{mock("fleet")}<div class="hero-chip">{fabric_svg(uid + "-fab")}</div>{link}{tags}</div>'
+            '<path d="M282 303 C 370 262, 520 268, 606 307"/><circle cx="282" cy="303" r="4.5"/><circle cx="606" cy="307" r="3"/></svg>')
+    tags = ('<div class="tag tag--chip"><span class="dot"></span>Measured in-system<br><small>every LUT and carry chain, at speed</small></div>'
+            '<div class="tag tag--device"><span class="dot dot--gold"></span>Per-device result<br><small>example: worst slack 8.2%, at X84Y212</small></div>')
+    return (f'<figure class="figure hero-figure"><div class="hero-stack">{mock("device")}<div class="hero-chip">{fabric_svg(uid + "-fab")}</div>{link}{tags}</div>'
             f'<figcaption class="mock-caption">Illustrative screen with example data.</figcaption></figure>')
 
 
@@ -433,7 +482,7 @@ def whynow():
     for v, t, d, href in C.WHYNOW:
         out.append(f'<div><div class="v">{esc(v)}</div><h3>{esc(t)}</h3><p>{esc(d)}</p><a class="arrow-link" href="{href}">Read more</a></div>')
     out.append('</div>')
-    out.append(f'<p class="footnote mt-20">Sources: {cite("fpga26")}; {cite("nsdi")}. Margin and precision figures are Fluid Silicon measurements and vary with variation pattern, workload, vendor and age.</p>')
+    out.append('<p class="footnote mt-20">Margin and precision figures are Fluid Silicon measurements and vary with variation pattern, workload, vendor and age.</p>')
     return "".join(out)
 
 
@@ -500,6 +549,17 @@ HOME_METRICS = [
     ("0", "downtime while monitoring runs"),
 ]
 METRIC_NOTE = "*Fluid Silicon measurements. Varies with variation pattern, workload, vendor and device age."
+
+
+def problem_grid():
+    """The home page's problem cards: the production problem as the headline, the solution that answers it as the link."""
+    out = ['<div class="sol-grid">']
+    for sdef in C.SOLUTIONS:
+        t, d = sdef["problem"]
+        out.append(f'<a class="sol-card" href="/solutions/{sdef["slug"]}/">{icon_box(sdef["icon"])}<h3>{esc(t)}</h3><p>{esc(d)}</p>'
+                   f'<span class="go">{esc(sdef["name"])}</span></a>')
+    out.append('</div>')
+    return "".join(out)
 
 
 def sol_grid(current=None, icons=False, dark=False):
@@ -827,10 +887,10 @@ def tech_tabs(which):
         ]
         return tabs("tabs-char", panels)
     panels = [
-        ("Monitor", P("Every logic element swept in about a second while the design runs. One metric on every vendor: measured slack as a share of the clock period."), mock_figure("fleet|Fleet view. Illustrative screen.", light=True)),
+        ("Monitor", P("Every logic element swept in about a second while the design runs. One metric on every vendor: measured slack as a share of the clock period."), mock_figure("device|One chip: its slack map, its weakest element and that element's history. Illustrative screen.", light=True)),
         ("Model", P("An aging curve per card and per element, fitted to the card's own temperature history, with a predicted time-to-threshold. Outliers are flagged early."), aging_figure("aging-tab", compact=True)),
-        ("Tune", P("Voltage and frequency set to what each chip can sustain, in windows you schedule, coordinated per device, per server or fleet-wide. Every change is re-measured."), mock_figure("tune|A recommended operating point awaiting approval. Illustrative screen.", light=True)),
-        ("Repair", P("Nothing in your design moves until an element degrades toward your threshold. Then only that path is moved to a healthy, faster resource, through your change process, and the card is re-measured within a second."), S.card_illustration("tab-repair")),
+        ("Tune", P("Voltage and frequency held within the margin each device has measured, in windows you schedule, coordinated per device, per board or fleet-wide. Every change is re-measured."), mock_figure("tune|A recommended operating point awaiting approval. Illustrative screen.", light=True)),
+        ("Repair", P("Nothing in your design moves until an element degrades toward your threshold. Then only that path is moved to a healthy resource, through your change process, and the card is re-measured within a second."), S.card_illustration("tab-repair")),
     ]
     return tabs("tabs-field", panels)
 
@@ -876,6 +936,7 @@ COMPONENTS = {
     "updated": lambda a: "September 2026",
     "metrics_home": lambda a: metrics(HOME_METRICS, METRIC_NOTE),
     "sol_grid": lambda a: sol_grid(current=a or None),
+    "problem_grid": lambda a: problem_grid(),
     "sol_icons": lambda a: sol_grid(current=a or None, icons=True),
     "ind_grid": lambda a: ind_grid(tiles=True),
     "ind_icons": lambda a: ind_grid(current=a or None, tiles=False),
@@ -1020,7 +1081,7 @@ def footer_html():
         <li><a href="/careers/">Careers</a></li><li><a href="/contact/">Contact</a></li><li><a href="/demo/">Request a demo</a></li></ul></div>
     </div>
     <div class="foot-bottom">
-      <p>© 2026 {LEGAL_ENTITY} All rights reserved. AMD, Altera and their product names are trademarks of their respective owners. Fluid Silicon is not affiliated with or endorsed by them.</p>
+      <p>© 2026 {LEGAL_ENTITY.rstrip('.')}. All rights reserved. AMD, Altera and their product names are trademarks of their respective owners. Fluid Silicon is not affiliated with or endorsed by them.</p>
       <div class="row"><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a><span class="muted">Philadelphia, PA</span><a class="social social--li social--sm" href="{FACTS["linkedin"]}" rel="noopener" aria-label="Fluid Silicon on LinkedIn">{LINKEDIN}</a></div>
     </div>
   </div>
@@ -1092,7 +1153,7 @@ def head_html(meta):
 <meta property="og:image" content="{SITE_URL}/assets/img/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Fluid Silicon: see what every chip can really do.">
+<meta property="og:image:alt" content="Fluid Silicon, a customizable platform for FPGA adaptation and resilience: at advanced nodes, every device is different.">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/assets/img/mark.svg" type="image/svg+xml">
